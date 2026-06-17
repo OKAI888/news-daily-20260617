@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新闻联播 · 2026年6月17日 · 深度解读</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: #0f1117; color: #e0e0e0; line-height: 1.7; }
+  .container { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
+
+  /* 头图 */
+  .hero { background: linear-gradient(135deg, #c0392b 0%, #e74c3c 30%, #d63031 60%, #b71540 100%); border-radius: 16px; padding: 48px 36px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,0.07); }
+  .hero::after { content: ""; position: absolute; bottom: -40px; left: -40px; width: 140px; height: 140px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+  .hero h1 { color: #fff; font-size: 32px; font-weight: 700; position: relative; z-index: 1; margin-bottom: 8px; }
+  .hero .date { color: rgba(255,255,255,0.85); font-size: 16px; position: relative; z-index: 1; }
+  .hero .count { color: rgba(255,255,255,0.9); font-size: 14px; margin-top: 10px; position: relative; z-index: 1; }
+
+  /* 卡片 */
+  .card { background: #1a1d27; border-radius: 14px; padding: 28px; margin-bottom: 24px; border: 1px solid #2a2d3a; }
+  .card h2 { color: #f0f0f0; font-size: 20px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid #c0392b; display: flex; align-items: center; gap: 8px; }
+  .card h3 { color: #ccc; font-size: 17px; margin: 22px 0 10px; }
+  .card h4 { color: #aaa; font-size: 15px; margin: 16px 0 8px; }
+
+  /* 分类标签 */
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .tag { padding: 4px 14px; border-radius: 99px; font-size: 13px; font-weight: 600; }
+  .tag-politics { background: rgba(231,76,60,0.15); color: #e74c3c; }
+  .tag-economy { background: rgba(46,204,113,0.15); color: #2ecc71; }
+  .tag-tech { background: rgba(52,152,219,0.15); color: #3498db; }
+  .tag-culture { background: rgba(155,89,182,0.15); color: #9b59b6; }
+  .tag-ecology { background: rgba(26,188,156,0.15); color: #1abc9c; }
+  .tag-foreign { background: rgba(241,196,15,0.15); color: #f1c40f; }
+
+  /* 图表区 */
+  .charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+  @media (max-width: 640px) { .charts-row { grid-template-columns: 1fr; } }
+
+  /* 新闻条目 */
+  .news-item { background: #22253a; border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; border-left: 4px solid #e74c3c; }
+  .news-item .num { color: #e74c3c; font-weight: 700; font-size: 14px; margin-right: 8px; }
+  .news-item .title { color: #e8e8e8; font-weight: 600; font-size: 15px; margin-bottom: 6px; }
+  .news-item .brief { color: #999; font-size: 13px; line-height: 1.6; }
+
+  /* 热点解读卡片 */
+  .hot-card { background: linear-gradient(135deg, #2d1b1b, #1a1d27); border: 1px solid #3d2a2a; border-radius: 12px; padding: 22px; margin-bottom: 16px; }
+  .hot-card .hot-tag { display: inline-block; background: #e74c3c; color: #fff; font-size: 11px; padding: 2px 10px; border-radius: 99px; margin-bottom: 8px; font-weight: 600; }
+  .hot-card h3 { color: #ff6b6b; font-size: 17px; margin: 6px 0; }
+  .hot-card p { color: #bbb; font-size: 14px; line-height: 1.8; }
+
+  /* 爆款选题 */
+  .idea-box { background: #1e2130; border-radius: 10px; padding: 18px; margin-bottom: 14px; border: 1px dashed #e74c3c; }
+  .idea-box .idea-num { color: #e74c3c; font-size: 24px; font-weight: 800; float: left; margin-right: 14px; line-height: 1; }
+  .idea-box h4 { color: #f0f0f0; font-size: 16px; margin-bottom: 4px; }
+  .idea-box .gene { color: #f1c40f; font-size: 12px; margin-bottom: 6px; }
+  .idea-box p { color: #999; font-size: 13px; }
+
+  /* 数据条 */
+  .bar-wrap { margin: 8px 0 16px; }
+  .bar-label { display: flex; justify-content: space-between; font-size: 13px; color: #aaa; margin-bottom: 4px; }
+  .bar-track { height: 10px; background: #2a2d3a; border-radius: 5px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 5px; }
+
+  /* SVG容器 */
+  .svg-chart { width: 100%; max-width: 420px; }
+
+  /* 风险提示 */
+  .risk-box { background: #2d1b1b; border: 1px solid #5a2a2a; border-radius: 10px; padding: 16px 20px; margin-top: 12px; }
+  .risk-box .risk-icon { color: #e74c3c; font-size: 20px; margin-right: 6px; }
+
+  /* 信息流 */
+  .info-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #2a2d3a; font-size: 14px; }
+  .info-row:last-child { border-bottom: none; }
+  .info-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; padding: 10px 12px; background: #2a2d3a; color: #e74c3c; font-weight: 600; border-radius: 6px 6px 0 0; }
+  td { padding: 10px 12px; border-bottom: 1px solid #2a2d3a; color: #bbb; }
+  tr:last-child td { border-bottom: none; }
+
+  .footer { text-align: center; color: #555; font-size: 12px; margin-top: 40px; padding-top: 20px; border-top: 1px solid #2a2d3a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ====== 头图 ====== -->
+<div class="hero">
+  <h1>📺 新闻联播 · 每日深度解读</h1>
+  <div class="date">2026年6月17日 · 星期三 · 第17期</div>
+  <div class="count">本期收录 16 条重点新闻 · 时长约 30 分钟</div>
+</div>
+
+<!-- ====== 分类总览 ====== -->
+<div class="card">
+  <h2>📊 新闻主题分布</h2>
+  <div class="charts-row">
+    <!-- 饼图 SVG -->
+    <svg class="svg-chart" viewBox="0 0 420 300">
+      <defs>
+        <radialGradient id="g1"><stop offset="0%" stop-color="#e74c3c"/><stop offset="100%" stop-color="#c0392b"/></radialGradient>
+        <radialGradient id="g2"><stop offset="0%" stop-color="#2ecc71"/><stop offset="100%" stop-color="#27ae60"/></radialGradient>
+        <radialGradient id="g3"><stop offset="0%" stop-color="#3498db"/><stop offset="100%" stop-color="#2980b9"/></radialGradient>
+        <radialGradient id="g4"><stop offset="0%" stop-color="#9b59b6"/><stop offset="100%" stop-color="#8e44ad"/></radialGradient>
+        <radialGradient id="g5"><stop offset="0%" stop-color="#1abc9c"/><stop offset="100%" stop-color="#16a085"/></radialGradient>
+        <radialGradient id="g6"><stop offset="0%" stop-color="#f1c40f"/><stop offset="100%" stop-color="#f39c12"/></radialGradient>
+      </defs>
+      <!-- 政治 31% = 111.6° -->
+      <path d="M210,150 L210,60 A90,90 0 0,1 298.4,189.7 Z" fill="url(#g1)"/>
+      <!-- 经济 25% = 90° -->
+      <path d="M210,150 L298.4,189.7 A90,90 0 0,1 259.7,234.3 Z" fill="url(#g2)"/>
+      <!-- 国际 19% = 68.4° -->
+      <path d="M210,150 L259.7,234.3 A90,90 0 0,1 214.3,237.1 Z" fill="url(#g6)"/>
+      <!-- 文化 13% = 46.8° -->
+      <path d="M210,150 L214.3,237.1 A90,90 0 0,1 172.0,226.1 Z" fill="url(#g4)"/>
+      <!-- 生态 6% = 21.6° -->
+      <path d="M210,150 L172.0,226.1 A90,90 0 0,1 157.2,208.7 Z" fill="url(#g5)"/>
+      <!-- 科技 6% = 21.6° -->
+      <path d="M210,150 L157.2,208.7 A90,90 0 0,1 210,60 Z" fill="url(#g3)"/>
+      <circle cx="210" cy="150" r="50" fill="#1a1d27"/>
+      <text x="210" y="145" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">16</text>
+      <text x="210" y="163" text-anchor="middle" fill="#aaa" font-size="11">条新闻</text>
+    </svg>
+    <!-- 图例+数据 -->
+    <div>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>🔴 政治/党建</span><span>5条 · 31%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:31%;background:linear-gradient(90deg,#e74c3c,#c0392b);"></div></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>🟢 经济/民生</span><span>4条 · 25%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:25%;background:linear-gradient(90deg,#2ecc71,#27ae60);"></div></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>🟡 外交/国际</span><span>3条 · 19%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:19%;background:linear-gradient(90deg,#f1c40f,#f39c12);"></div></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>🟣 文化/社会</span><span>2条 · 13%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:13%;background:linear-gradient(90deg,#9b59b6,#8e44ad);"></div></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>🟢 生态/环保</span><span>1条 · 6%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:6%;background:linear-gradient(90deg,#1abc9c,#16a085);"></div></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>🔵 科技/航天</span><span>1条 · 6%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:6%;background:linear-gradient(90deg,#3498db,#2980b9);"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 本期要闻速览 ====== -->
+<div class="card">
+  <h2>📋 本期要闻速览</h2>
+  <div style="margin-bottom:20px;">
+    <div class="tag-list" style="margin-bottom:16px;">
+      <span class="tag tag-politics">政治</span>
+      <span class="tag tag-economy">经济</span>
+      <span class="tag tag-culture">文化</span>
+      <span class="tag tag-tech">科技</span>
+      <span class="tag tag-ecology">生态</span>
+      <span class="tag tag-foreign">国际</span>
+    </div>
+  </div>
+
+  <!-- 头条 -->
+  <div class="news-item" style="border-left-color:#ff4757;">
+    <span class="num">⭐ 头条</span>
+    <div class="title">习近平对常态化做好东西部协作工作作出重要指示</div>
+    <div class="brief">强调总结运用闽宁协作等有益经验，不断增强区域发展协调性，推动全体人民共同富裕迈出坚实步伐。这是继闽宁协作28年后，将东西部协作机制制度化、常态化的重要表态。</div>
+  </div>
+
+  <div class="news-item" style="border-left-color:#e74c3c;">
+    <span class="num">02</span>
+    <div class="title">学习贯彻习近平党建思想 深入推进新时代党的建设新的伟大工程</div>
+    <div class="brief">人民日报同步配发评论员文章，形成政治议题"组合拳"。</div>
+  </div>
+
+  <div class="news-item" style="border-left-color:#f1c40f;">
+    <span class="num">03</span>
+    <div class="title">韩正会见美国前运输部长</div>
+    <div class="brief">中美非正式外交接触继续，释放沟通信号。</div>
+  </div>
+
+  <div class="news-item" style="border-left-color:#2ecc71;">
+    <span class="num">04</span>
+    <div class="title">国务院印发《实施就业优先战略"十五五"规划》</div>
+    <div class="brief">"就业优先"首次在十五五规划中独立成章，将就业目标纳入宏观调控核心指标。</div>
+  </div>
+
+  <div class="news-item" style="border-left-color:#f39c12;">
+    <span class="num">05</span>
+    <div class="title">全国夏粮丰收成定局</div>
+    <div class="brief">农业农村部最新数据：全国麦收进度过九成，夏粮面积稳定、单产提升。</div>
+  </div>
+
+  <div class="news-item" style="border-left-color:#3498db;">
+    <span class="num">06</span>
+    <div class="title">中国政府发布关于全球治理的白皮书</div>
+    <div class="brief">系统阐述中国对全球治理体系改革的主张，这是中国首次以白皮书形式全面阐述全球治理观。</div>
+  </div>
+
+  <div class="news-item" style="border-left-color:#9b59b6;">
+    <span class="num">07</span>
+    <div class="title">三大文艺家协会全国代表大会在京召开</div>
+    <div class="brief">中国戏剧家、民间文艺家、书法家协会同步换届，文化领域人事布局启动。</div>
+  </div>
+
+  <div class="news-item" style="border-left-color:#1abc9c;">
+    <span class="num">08</span>
+    <div class="title">我国荒漠化防治取得显著成效</div>
+    <div class="brief">恰逢世界防治荒漠化与干旱日前夕发布成绩单。</div>
+  </div>
+
+  <div class="news-item" style="border-left-color:#2ecc71;">
+    <span class="num">09</span>
+    <div class="title">多项金融开放举措今天发布</div>
+    <div class="brief">财政部在港发行150亿元人民币国债，金融开放持续加码。</div>
+  </div>
+
+  <div class="news-item" style="border-left-color:#e74c3c;">
+    <span class="num">10</span>
+    <div class="title">《外卖平台补贴行为规范十条》征求意见</div>
+    <div class="brief">监管出手规范外卖平台补贴行为，涉及千万骑手和上亿消费者。</div>
+  </div>
+
+  <div class="news-item" style="border-left-color:#3498db;">
+    <span class="num">11</span>
+    <div class="title">我国成功发射卫星互联网低轨22组卫星</div>
+    <div class="brief">低轨卫星互联网星座建设持续推进。</div>
+  </div>
+
+  <div class="news-item" style="border-left-color:#f1c40f;">
+    <span class="num">12-14</span>
+    <div class="title">国际热点：伊核谈判第二阶段 · 俄英海峡事件 · 德国AI警告 · 非疾控埃博拉</div>
+    <div class="brief">伊朗与美国谈判聚焦核问题及解除制裁；俄舰在英吉利海峡开火示警；德国机构警告依赖美国AI模型风险；非洲埃博拉疫情恐恶化。</div>
+  </div>
+</div>
+
+<!-- ====== 热点解读 ====== -->
+<div class="card">
+  <h2>🔥 热点深度解读</h2>
+
+  <div class="hot-card">
+    <span class="hot-tag">头条热点</span>
+    <h3>① 东西部协作"常态化"——共同富裕的关键落子</h3>
+    <p>
+      <strong>为什么重要：</strong>闽宁协作从1996年启动至今已28年，是东西部协作的标杆。此次总书记将其上升为"常态化"机制，意味着这不再是临时帮扶，而是国家制度性安排。<br><br>
+      <strong>深层信号：</strong>在"十五五"规划编制窗口期，这一表态与就业优先战略、夏粮丰收形成民生保障"铁三角"。共同富裕从口号进入制度化实施阶段。<br><br>
+      <strong>关注点：</strong>产业转移、人才流动、教育医疗资源下沉——这些将是具体落地抓手。
+    </p>
+  </div>
+
+  <div class="hot-card">
+    <span class="hot-tag">经济信号</span>
+    <h3>② 就业优先战略"十五五"规划——首次独立成章</h3>
+    <p>
+      <strong>为什么重要：</strong>就业目标被纳入宏观调控核心指标，这在五年规划历史上是第一次。背后是2026年高校毕业生预计超1200万人的现实压力。<br><br>
+      <strong>与今日其他新闻联动：</strong>外卖平台补贴规范（灵活就业群体保障）+ 夏粮丰收（粮食安全兜底）+ 金融开放（外资引入创造岗位），构成了一套完整的就业组合拳。<br><br>
+      <strong>投资/创业视角：</strong>服务业、数字经济、零工经济将迎来更多政策利好。
+    </p>
+  </div>
+
+  <div class="hot-card">
+    <span class="hot-tag">市场关注</span>
+    <h3>③ 金融开放"连环招"——人民币国际化加速</h3>
+    <p>
+      <strong>多项举措同日发布：</strong>财政部在港发行150亿元人民币国债，同步推出多项金融开放举措。这不是孤立事件，而是人民币国际化战略的协同推进。<br><br>
+      <strong>结合国际背景：</strong>德国机构警告"过度依赖美国AI模型"的新闻出现在同一天的国际版——全球"去美国化"趋势正在多个维度展开，金融和科技的自主化是两条并行主线。<br><br>
+      <strong>对普通人的影响：</strong>更多外资进入意味着更多就业选择、更激烈的市场竞争，也意味着金融监管将进一步加强。
+    </p>
+  </div>
+
+  <div class="hot-card">
+    <span class="hot-tag">民生焦点</span>
+    <h3>④ 外卖平台补贴"被规范"——千万骑手的信号</h3>
+    <p>
+      <strong>《外卖平台补贴行为规范十条（征求意见稿）》</strong>的出台，意味着外卖行业"烧钱补贴换市场"模式走到了尽头。<br><br>
+      <strong>信号：</strong>国家正在平衡平台经济活力与劳动者权益。结合就业优先战略，从"鼓励灵活就业"转向"规范灵活就业"——这是质的转变。<br><br>
+      <strong>选题方向：</strong>对内容创作者来说，"外卖不再补贴"+"骑手权益升级"是天然的情绪共鸣话题。
+    </p>
+  </div>
+
+  <div class="hot-card">
+    <span class="hot-tag">国际观察</span>
+    <h3>⑤ 全球治理白皮书 + 伊核谈判——中国外交双线出击</h3>
+    <p>
+      <strong>全球治理白皮书：</strong>这是中国首次以白皮书形式全面阐述全球治理主张。在G7峰会（6月13-15日）刚结束、金砖峰会即将召开的窗口期发布，时间节点精准。<br><br>
+      <strong>伊核谈判第二阶段：</strong>伊朗称谈判聚焦核问题及解除制裁，美国确认谈判进入第二阶段。国际油价因预期制裁解除已大幅下跌——这条消息对你的钱包有直接影响。<br><br>
+      <strong>全局看：</strong>中国在多极世界格局中从"参与者"转向"规则制定者"。
+    </p>
+  </div>
+</div>
+
+<!-- ====== 传播热度评估 ====== -->
+<div class="card">
+  <h2>📈 传播热度评估（8维打分）</h2>
+  <p style="font-size:13px; color:#888; margin-bottom:16px;">评分标准：1-5分 · 总分≥30为爆款潜力选题</p>
+
+  <!-- 雷达图 -->
+  <svg class="svg-chart" viewBox="0 0 420 340" style="width:100%;max-width:460px;">
+    <defs>
+      <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    <!-- 背景网格 -->
+    <polygon points="210,60 350,140 320,280 100,280 70,140" fill="none" stroke="#2a2d3a" stroke-width="1"/>
+    <polygon points="210,90 320,150 300,250 120,250 100,150" fill="none" stroke="#2a2d3a" stroke-width="1"/>
+    <polygon points="210,120 290,160 280,220 140,220 130,160" fill="none" stroke="#2a2d3a" stroke-width="1"/>
+    <polygon points="210,150 260,175 260,190 160,190 160,175" fill="none" stroke="#2a2d3a" stroke-width="1"/>
+    <line x1="210" y1="60" x2="210" y2="280" stroke="#2a2d3a" stroke-width="1"/>
+    <line x1="70" y1="140" x2="350" y2="140" stroke="#2a2d3a" stroke-width="1"/>
+    <line x1="100" y1="280" x2="320" y2="280" stroke="#2a2d3a" stroke-width="1"/>
+
+    <!-- 就业优先 -->
+    <polygon points="210,75 335,130 316,240 104,240 85,130" fill="rgba(46,204,113,0.12)" stroke="#2ecc71" stroke-width="2" filter="url(#glow)"/>
+    <!-- 东西部协作 -->
+    <polygon points="210,90 305,140 295,230 125,230 115,140" fill="rgba(231,76,60,0.12)" stroke="#e74c3c" stroke-width="2" filter="url(#glow)"/>
+    <!-- 外卖补贴规范 -->
+    <polygon points="210,100 290,147 282,218 138,218 130,147" fill="rgba(241,196,15,0.12)" stroke="#f1c40f" stroke-width="2" filter="url(#glow)"/>
+    <!-- 金融开放 -->
+    <polygon points="210,105 275,150 270,210 150,210 145,150" fill="rgba(52,152,219,0.12)" stroke="#3498db" stroke-width="2" filter="url(#glow)"/>
+
+    <!-- 标签 -->
+    <text x="210" y="48" text-anchor="middle" fill="#e74c3c" font-size="11">情绪共鸣</text>
+    <text x="365" y="140" text-anchor="start" fill="#f1c40f" font-size="11">信息差</text>
+    <text x="323" y="295" text-anchor="start" fill="#2ecc71" font-size="11">行动触发</text>
+    <text x="90" y="295" text-anchor="end" fill="#3498db" font-size="11">时效性</text>
+    <text x="50" y="140" text-anchor="end" fill="#9b59b6" font-size="11">身份标签</text>
+  </svg>
+
+  <table style="margin-top:20px;">
+    <tr>
+      <th>选题</th>
+      <th>情绪</th>
+      <th>信息差</th>
+      <th>身份标签</th>
+      <th>行动触发</th>
+      <th>时效</th>
+      <th>锚点</th>
+      <th>可视化</th>
+      <th>门槛</th>
+      <th style="color:#2ecc71;">总分</th>
+    </tr>
+    <tr>
+      <td style="color:#e74c3c;font-weight:600;">东西部协作常态化</td>
+      <td>3</td><td>4</td><td>3</td><td>2</td><td>5</td><td>3</td><td>3</td><td>2</td>
+      <td style="color:#2ecc71;font-weight:700;">25</td>
+    </tr>
+    <tr>
+      <td style="color:#2ecc71;font-weight:600;">就业优先十五五规划</td>
+      <td>5</td><td>4</td><td>5</td><td>4</td><td>5</td><td>4</td><td>4</td><td>4</td>
+      <td style="color:#2ecc71;font-weight:700;">35 ⭐</td>
+    </tr>
+    <tr>
+      <td style="color:#f1c40f;font-weight:600;">外卖补贴规范十条</td>
+      <td>5</td><td>4</td><td>5</td><td>4</td><td>5</td><td>5</td><td>5</td><td>5</td>
+      <td style="color:#2ecc71;font-weight:700;">38 ⭐⭐</td>
+    </tr>
+    <tr>
+      <td style="color:#3498db;font-weight:600;">金融开放连环招</td>
+      <td>3</td><td>5</td><td>4</td><td>3</td><td>4</td><td>4</td><td>3</td><td>3</td>
+      <td style="color:#2ecc71;font-weight:700;">29</td>
+    </tr>
+    <tr>
+      <td style="color:#f39c12;font-weight:600;">夏粮丰收成定局</td>
+      <td>4</td><td>3</td><td>3</td><td>3</td><td>4</td><td>4</td><td>4</td><td>4</td>
+      <td style="color:#2ecc71;font-weight:700;">29</td>
+    </tr>
+    <tr>
+      <td style="color:#1abc9c;font-weight:600;">荒漠化防治成效</td>
+      <td>3</td><td>4</td><td>2</td><td>2</td><td>4</td><td>4</td><td>5</td><td>4</td>
+      <td style="color:#2ecc71;font-weight:700;">28</td>
+    </tr>
+    <tr>
+      <td style="color:#9b59b6;font-weight:600;">全球治理白皮书</td>
+      <td>3</td><td>5</td><td>3</td><td>2</td><td>4</td><td>3</td><td>2</td><td>2</td>
+      <td style="color:#f1c40f;font-weight:700;">24</td>
+    </tr>
+  </table>
+  <p style="font-size:12px; color:#666; margin-top:8px;">⭐ 总分≥30为爆款潜力选题 · ⭐⭐ 为超级爆款候选</p>
+</div>
+
+<!-- ====== 爆款选题工厂 ====== -->
+<div class="card">
+  <h2>🏭 爆款选题工厂 · Top 3 推荐方案</h2>
+  <p style="font-size:13px; color:#888; margin-bottom:20px;">基于"四基因"（情绪钩子·信息差·身份标签·行动触发）+ "12条心法"筛选</p>
+
+  <!-- 选题1 -->
+  <div class="idea-box">
+    <div class="idea-num">🥇</div>
+    <h4>外卖平台"补贴被禁"！你的外卖明天涨价吗？</h4>
+    <div class="gene">🎯 命中基因：情绪钩子（焦虑+共鸣）+ 身份标签（打工人）+ 信息差（政策解读）</div>
+    <p>
+      <strong>冲突点：</strong>国家出手规范外卖补贴 vs 打工人每天依赖外卖<br>
+      <strong>传播锚点：</strong>"补贴规范十条"完整清单对比图（现在 vs 未来）<br>
+      <strong>最佳形态：</strong>短视频（直接念文件+算账）+ 公众号长文（深度解读）<br>
+      <strong>5条爆款标题：</strong><br>
+      ① "国家叫停外卖补贴！你的午餐要多花多少钱？"（焦虑+数字）<br>
+      ② "外卖平台不能随便补贴了，这是好事还是坏事？"（对立观点）<br>
+      ③ "10条规定管住外卖补贴，骑手和用户谁更赚？"（利益对比）<br>
+      ④ "一单外卖背后的博弈：平台、骑手、商家、用户"（全景视角）<br>
+      ⑤ "今天新闻联播偷偷说了一件影响你明天午饭的事"（好奇心钩子）
+    </p>
+  </div>
+
+  <!-- 选题2 -->
+  <div class="idea-box">
+    <div class="idea-num">🥈</div>
+    <h4>1200万毕业生来了！国家掏出的"王炸"是什么？</h4>
+    <div class="gene">🎯 命中基因：情绪钩子（焦虑）+ 身份标签（年轻人/家长）+ 行动触发（政策指南）</div>
+    <p>
+      <strong>冲突点：</strong>1200万毕业生 vs 就业压力 vs 国家首次把就业写入十五五独立章节<br>
+      <strong>传播锚点：</strong>"十五五就业优先战略"核心条款可视化解读（信息图）<br>
+      <strong>最佳形态：</strong>公众号长文（数据对比+政策解读）+ 小红书图文<br>
+      <strong>5条爆款标题：</strong><br>
+      ① "2026届1200万毕业生，国家这次是真急了"（情绪共鸣）<br>
+      ② "十五五规划第一次把就业独立成章，释放了什么信号？"（信息差）<br>
+      ③ "从996到灵活就业：未来五年你的工作方式将彻底改变"（前瞻性）<br>
+      ④ "就业优先战略里，藏着这5个最有前景的行业"（实用+行动触发）<br>
+      ⑤ "不是你不努力，是国家要给你换赛道了"（金句型）
+    </p>
+  </div>
+
+  <!-- 选题3 -->
+  <div class="idea-box">
+    <div class="idea-num">🥉</div>
+    <h4>伊朗松口了！油价暴跌背后，普通人的钱包会怎样？</h4>
+    <div class="gene">🎯 命中基因：情绪钩子（关注钱包）+ 信息差（国际局势解读）+ 行动触发（消费决策）</div>
+    <p>
+      <strong>冲突点：</strong>伊核谈判第二阶段启动 + 伊朗油轮驶出封锁线 → 国际油价暴跌 → 你的93号油明天降多少？<br>
+      <strong>传播锚点：</strong>国际油价走势图 + 国内油价调整时间表<br>
+      <strong>最佳形态：</strong>短视频（快速解读）+ 公众号（深度国际分析）<br>
+      <strong>5条爆款标题：</strong><br>
+      ① "伊朗和美国谈拢了，你的油价终于要降了"（直接利益）<br>
+      ② "一场万里之外的谈判，正在决定你明天加油的价格"（连接感）<br>
+      ③ "国际油价暴跌！下半年开车能省多少钱？"（算账型）<br>
+      ④ "美伊谈判进入第二阶段，中东格局要变天了"（格局型）<br>
+      ⑤ "新闻联播30秒的国际新闻，让你省下300块油钱"（利益换算）
+    </p>
+  </div>
+</div>
+
+<!-- ====== 多形态联动建议 ====== -->
+<div class="card">
+  <h2>🔄 "一个热点吃三轮" · 多形态联动矩阵</h2>
+
+  <!-- 时间轴 SVG -->
+  <svg viewBox="0 0 840 130" style="width:100%;max-width:840px;">
+    <!-- 时间线 -->
+    <line x1="60" y1="65" x2="800" y2="65" stroke="#2a2d3a" stroke-width="3"/>
+    <!-- 节点 -->
+    <circle cx="150" cy="65" r="10" fill="#e74c3c"/>
+    <text x="150" y="95" text-anchor="middle" fill="#e74c3c" font-size="12" font-weight="600">6月17日 晚</text>
+    <text x="150" y="110" text-anchor="middle" fill="#999" font-size="11">短视频首发</text>
+
+    <circle cx="380" cy="65" r="10" fill="#f39c12"/>
+    <text x="380" y="95" text-anchor="middle" fill="#f39c12" font-size="12" font-weight="600">6月18日 早</text>
+    <text x="380" y="110" text-anchor="middle" fill="#999" font-size="11">公众号长文</text>
+
+    <circle cx="610" cy="65" r="10" fill="#2ecc71"/>
+    <text x="610" y="95" text-anchor="middle" fill="#2ecc71" font-size="12" font-weight="600">6月18-19日</text>
+    <text x="610" y="110" text-anchor="middle" fill="#999" font-size="11">小红书/微博二创</text>
+
+    <circle cx="780" cy="65" r="10" fill="#3498db"/>
+    <text x="780" y="30" text-anchor="middle" fill="#3498db" font-size="12" font-weight="600">6月19-20日</text>
+    <text x="780" y="45" text-anchor="middle" fill="#999" font-size="11">H5/漫画沉淀</text>
+
+    <!-- 内容标签 -->
+    <rect x="105" y="15" width="90" height="22" rx="11" fill="rgba(231,76,60,0.2)"/>
+    <text x="150" y="30" text-anchor="middle" fill="#e74c3c" font-size="10">外卖补贴解读</text>
+
+    <rect x="315" y="15" width="130" height="22" rx="11" fill="rgba(243,156,18,0.2)"/>
+    <text x="380" y="30" text-anchor="middle" fill="#f39c12" font-size="10">就业战略深度分析</text>
+
+    <rect x="545" y="15" width="130" height="22" rx="11" fill="rgba(46,204,113,0.2)"/>
+    <text x="610" y="30" text-anchor="middle" fill="#2ecc71" font-size="10">油价/金融/夏粮</text>
+
+    <rect x="720" y="15" width="120" height="22" rx="11" fill="rgba(52,152,219,0.2)"/>
+    <text x="780" y="30" text-anchor="middle" fill="#3498db" font-size="10">政策图解/信息图</text>
+  </svg>
+
+  <table style="margin-top:20px;">
+    <tr>
+      <th style="width:20%;">时间窗口</th>
+      <th style="width:25%;">内容形态</th>
+      <th>具体打法</th>
+      <th style="width:18%;">目标KPI</th>
+    </tr>
+    <tr>
+      <td style="color:#e74c3c;font-weight:600;">当晚 19:00-22:00</td>
+      <td>短视频（抖音/视频号）</td>
+      <td>「外卖补贴规范」15秒快剪；「就业优先」30秒口播</td>
+      <td>播放量10万+</td>
+    </tr>
+    <tr>
+      <td style="color:#f39c12;font-weight:600;">次日 06:00-09:00</td>
+      <td>公众号长文</td>
+      <td>「就业优先战略」数据解读 1200字深度稿</td>
+      <td>阅读量3万+</td>
+    </tr>
+    <tr>
+      <td style="color:#2ecc71;font-weight:600;">次日 12:00-14:00</td>
+      <td>小红书图文</td>
+      <td>「油价暴跌·你能省多少」算账图文</td>
+      <td>互动量500+</td>
+    </tr>
+    <tr>
+      <td style="color:#9b59b6;font-weight:600;">48h 后</td>
+      <td>微博话题</td>
+      <td>#外卖不再补贴你还会点吗# 话题运营</td>
+      <td>热搜冲榜</td>
+    </tr>
+    <tr>
+      <td style="color:#3498db;font-weight:600;">72h 后</td>
+      <td>信息图/H5</td>
+      <td>「十五五就业优先战略」一图读懂；荒漠化防治成绩单</td>
+      <td>长尾流量</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ====== 风险提示 ====== -->
+<div class="card">
+  <h2>⚠️ 内容安全自检</h2>
+  <div class="risk-box">
+    <p style="font-size:13px; color:#ff6b6b; margin-bottom:8px;">🔴 <strong>重点关注事项：</strong></p>
+    <div class="info-row">
+      <div class="info-dot" style="background:#e74c3c;"></div>
+      <span style="color:#ff6b6b;">习近平党建思想</span>
+      <span style="color:#888;">引用时严格使用官方表述，不自行解读，不与其他国家政党比较</span>
+    </div>
+    <div class="info-row">
+      <div class="info-dot" style="background:#f39c12;"></div>
+      <span style="color:#f39c12;">伊核谈判/中东局势</span>
+      <span style="color:#888;">不站队，不渲染"中国调停"，以客观转述为主</span>
+    </div>
+    <div class="info-row">
+      <div class="info-dot" style="background:#f39c12;"></div>
+      <span style="color:#f39c12;">外卖平台补贴规范</span>
+      <span style="color:#888;">避免点名具体平台，避免引战"资本家vs劳动者"，聚焦政策本身</span>
+    </div>
+    <div class="info-row">
+      <div class="info-dot" style="background:#f39c12;"></div>
+      <span style="color:#f39c12;">就业压力话题</span>
+      <span style="color:#888;">不制造焦虑、不夸大失业，以政策解读和正向引导为主</span>
+    </div>
+    <div class="info-row">
+      <div class="info-dot" style="background:#f39c12;"></div>
+      <span style="color:#f39c12;">俄英海峡事件</span>
+      <span style="color:#888;">简述事实，不过度解读，不与当前俄乌局势强行关联</span>
+    </div>
+    <div class="info-row">
+      <div class="info-dot" style="background:#2ecc71;"></div>
+      <span style="color:#2ecc71;">埃博拉疫情</span>
+      <span style="color:#888;">引用WHO/非疾控官方数据，不渲染恐慌</span>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 底部信息 ====== -->
+<div class="footer">
+  <p>新闻联播每日解读 · 第17期 | 数据来源：CCTV-1 · 新华网 · 同花顺</p>
+  <p style="margin-top:6px;">内容仅供信息参考，不构成投资建议。话题创作请遵守《网络信息内容生态治理规定》。</p>
+  <p style="margin-top:6px; color:#444;">Generated by WorkBuddy AI · 2026-06-17 19:55 CST</p>
+</div>
+
+</div>
+</body>
+</html>
