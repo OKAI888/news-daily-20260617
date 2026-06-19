@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>新闻联播热点选题库</title>
+<title>新闻联播热点选题库 | 2026年6月</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#f8f9fa;color:#1a1a2e;padding:24px;max-width:600px;margin:0 auto}
@@ -11,14 +11,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 .header .badge{display:inline-block;background:#e94560;color:#fff;padding:4px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:8px}
 .header h1{font-size:24px;font-weight:800;background:linear-gradient(135deg,#e94560,#f5c518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:8px 0}
 .header .sub{font-size:13px;color:#6b7280}
-.date-list{display:flex;flex-direction:column;gap:12px;margin:20px 0}
-.date-card{background:#ffffff;border-radius:14px;padding:18px;border:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;gap:16px;text-decoration:none;color:#1a1a2e;transition:all 0.2s}
-.date-card:hover{background:#f0f0f5;transform:translateX(4px);border-color:rgba(233,69,96,0.3)}
-.date-card .day{font-size:28px;font-weight:800;min-width:60px;text-align:center;background:linear-gradient(135deg,#e94560,#f5c518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.date-card .info{flex:1}
-.date-card .info .date-full{font-size:15px;font-weight:700;margin-bottom:3px}
-.date-card .info .weekday{font-size:12px;color:#6b7280}
-.date-card .arrow{color:#e94560;font-size:20px}
+.stats{display:flex;gap:12px;justify-content:center;margin:12px 0;flex-wrap:wrap}
+.stat{background:#fff;border-radius:10px;padding:10px 18px;text-align:center;border:1px solid rgba(0,0,0,0.06)}
+.stat .num{font-size:22px;font-weight:800;color:#e94560}
+.stat .lbl{font-size:11px;color:#6b7280;margin-top:2px}
+.date-list{display:flex;flex-direction:column;gap:8px;margin:16px 0}
+.date-card{background:#ffffff;border-radius:12px;padding:14px 16px;border:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;gap:14px;text-decoration:none;color:#1a1a2e;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.date-card:hover{transform:translateX(4px);border-color:rgba(233,69,96,0.3);box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.date-card .day{font-size:26px;font-weight:800;min-width:50px;text-align:center;color:#e94560}
+.date-card .info{flex:1;min-width:0}
+.date-card .info .date-full{font-size:14px;font-weight:700;margin-bottom:2px}
+.date-card .info .topics{font-size:11px;color:#6b7280;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.date-card .arrow{color:#e94560;font-size:16px;flex-shrink:0}
 .footer{text-align:center;padding:30px 0;font-size:12px;color:#999;border-top:1px solid rgba(0,0,0,0.06);margin-top:20px}
 </style>
 </head>
@@ -26,43 +30,161 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 <div class="header">
   <div class="badge">📺 每日选题炼金炉</div>
   <h1>新闻联播热点选题库</h1>
-  <div class="sub">2026年6月 · 内容素材库</div>
+  <div class="sub">2026年6月 · 全月内容素材库</div>
 </div>
+<div class="stats">
+  <div class="stat"><div class="num">18</div><div class="lbl">已更新天数</div></div>
+  <div class="stat"><div class="num">126+</div><div class="lbl">有效选题</div></div>
+  <div class="stat"><div class="num">7</div><div class="lbl">热点领域</div></div>
+</div>
+<div class="date-list">
+<a class="date-card" href="2026-06-01.html">
+  <div class="day">01</div>
+  <div class="info">
+    <div class="date-full">2026年6月01日 · 星期一</div>
+    <div class="topics">制造业AI转型 · 儿童友好城乡 · 长征十二号首飞</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
+<a class="date-card" href="2026-06-02.html">
+  <div class="day">02</div>
+  <div class="info">
+    <div class="date-full">2026年6月02日 · 星期二</div>
+    <div class="topics">育儿补贴999亿 · 15分钟生活圈 · 高考护航</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
+<a class="date-card" href="2026-06-03.html">
+  <div class="day">03</div>
+  <div class="info">
+    <div class="date-full">2026年6月03日 · 星期三</div>
+    <div class="topics">平陆运河通水 · 外资加码硬科技 · 麦收进度</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
+<a class="date-card" href="2026-06-04.html">
+  <div class="day">04</div>
+  <div class="info">
+    <div class="date-full">2026年6月04日 · 星期四</div>
+    <div class="topics">3D打印产业 · 自贸区新高 · 蝉翼钢</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
+<a class="date-card" href="2026-06-05.html">
+  <div class="day">05</div>
+  <div class="info">
+    <div class="date-full">2026年6月05日 · 星期五</div>
+    <div class="topics">就业十五五规划 · 医保跨省共济 · 6G创新</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
+<a class="date-card" href="2026-06-06.html">
+  <div class="day">06</div>
+  <div class="info">
+    <div class="date-full">2026年6月06日 · 星期六</div>
+    <div class="topics">6万亿水网建设 · 海风之心换流站 · 扩内需组合拳</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
+<a class="date-card" href="2026-06-07.html">
+  <div class="day">07</div>
+  <div class="info">
+    <div class="date-full">2026年6月07日 · 星期日</div>
+    <div class="topics">三北工程三周年 · 高考1290万 · 造船产业升级</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
+<a class="date-card" href="2026-06-08.html">
+  <div class="day">08</div>
+  <div class="info">
+    <div class="date-full">2026年6月08日 · 星期一</div>
+    <div class="topics">伊以互相打击 · 三峡新通道开工 · 菲律宾7.9级地震</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
+<a class="date-card" href="2026-06-09.html">
+  <div class="day">09</div>
+  <div class="info">
+    <div class="date-full">2026年6月09日 · 星期二</div>
+    <div class="topics">外贸20.68万亿 · 伊以暂停互袭 · 世界古典学大会</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
+<a class="date-card" href="2026-06-10.html">
+  <div class="day">10</div>
+  <div class="info">
+    <div class="date-full">2026年6月10日 · 星期三</div>
+    <div class="topics">AI智慧农业 · 汽车出口 · 新型电网</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
+<a class="date-card" href="2026-06-11.html">
+  <div class="day">11</div>
+  <div class="info">
+    <div class="date-full">2026年6月11日 · 星期四</div>
+    <div class="topics">霍尔木兹关闭 · 地下管网改造 · 人形机器人</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
+<a class="date-card" href="2026-06-12.html">
+  <div class="day">12</div>
+  <div class="info">
+    <div class="date-full">2026年6月12日 · 星期五</div>
+    <div class="topics">世界杯开幕 · 美伊协议 · 失能老人补贴</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
+<a class="date-card" href="2026-06-13.html">
+  <div class="day">13</div>
+  <div class="info">
+    <div class="date-full">2026年6月13日 · 星期六</div>
+    <div class="topics">南极异常高温 · AI修复壁画 · 算力网</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
+<a class="date-card" href="2026-06-14.html">
+  <div class="day">14</div>
+  <div class="info">
+    <div class="date-full">2026年6月14日 · 星期日</div>
+    <div class="topics">熊猫廊道 · 侯贵治沙 · 公积金调整</div>
+  </div>
+  <div class="arrow">→</div>
+</a>
 <a class="date-card" href="2026-06-15.html">
   <div class="day">15</div>
   <div class="info">
-    <div class="date-full">2026年6月15日</div>
-    <div class="weekday">星期一 · 美伊停火 · 民生工程 · 夏粮丰收</div>
+    <div class="date-full">2026年6月15日 · 星期一</div>
+    <div class="topics">美伊停火 · 民生工程 · 夏粮丰收</div>
   </div>
   <div class="arrow">→</div>
 </a>
 <a class="date-card" href="2026-06-16.html">
   <div class="day">16</div>
   <div class="info">
-    <div class="date-full">2026年6月16日</div>
-    <div class="weekday">星期二 · 中缅合作 · 经济数据 · 青岛峰会</div>
+    <div class="date-full">2026年6月16日 · 星期二</div>
+    <div class="topics">中缅合作 · 经济数据 · 青岛峰会</div>
   </div>
   <div class="arrow">→</div>
 </a>
 <a class="date-card" href="2026-06-17.html">
   <div class="day">17</div>
   <div class="info">
-    <div class="date-full">2026年6月17日</div>
-    <div class="weekday">星期三 · 梦舟飞船 · 夏粮丰收 · 陆家嘴论坛</div>
+    <div class="date-full">2026年6月17日 · 星期三</div>
+    <div class="topics">梦舟飞船 · 夏粮丰收 · 陆家嘴论坛</div>
   </div>
   <div class="arrow">→</div>
 </a>
 <a class="date-card" href="2026-06-18.html">
   <div class="day">18</div>
   <div class="info">
-    <div class="date-full">2026年6月18日</div>
-    <div class="weekday">星期四 · 美伊签署 · 端午消费 · 美联储加息</div>
+    <div class="date-full">2026年6月18日 · 星期四</div>
+    <div class="topics">美伊签署 · 端午消费 · 美联储加息</div>
   </div>
   <div class="arrow">→</div>
 </a>
+</div>
 <div class="footer">
-  <p>📺 数据来源：CCTV新闻联播</p>
-  <p>自动同步 · GitHub Pages 托管</p>
+  <p>📺 数据来源：CCTV新闻联播 | GitHub Pages 托管 | 每日自动同步</p>
 </div>
 </body>
 </html>

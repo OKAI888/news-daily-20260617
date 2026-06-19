@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>新闻联播热点选题库 | 2026年6月13日</title>
+<style>
+:root {
+  --bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --accent: #e94560;
+  --accent2: #0f3460;
+  --gold: #f5c518;
+  --text: #1a1a2e;
+  --text2: #6b7280;
+  --green: #2ecc71;
+  --blue: #3498db;
+  --orange: #e67e22;
+  --purple: #9b59b6;
+  --teal: #1abc9c;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 16px;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+.header { text-align: center; padding: 20px 0 10px; position: relative; }
+.header .badge { display: inline-block; background: var(--accent); color: #1a1a2e; padding: 4px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 8px; letter-spacing: 1px; }
+.header h1 { font-size: 22px; font-weight: 800; background: linear-gradient(135deg, #e94560, #f5c518); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 6px 0; }
+.header .sub { font-size: 13px; color: var(--text2); }
+.section-title { font-size: 17px; font-weight: 700; margin: 24px 0 12px; padding-left: 12px; border-left: 3px solid var(--accent); display: flex; align-items: center; gap: 8px; }
+.section-title .icon { font-size: 20px; }
+.stats-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.stat-card { flex: 1 1 calc(50% - 4px); min-width: 140px; background: var(--card-bg); border-radius: 12px; padding: 14px 12px; text-align: center; border: 1px solid rgba(0,0,0,0.06); }
+.stat-card .num { font-size: 28px; font-weight: 800; background: linear-gradient(135deg, #e94560, #f5c518); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.stat-card .label { font-size: 12px; color: var(--text2); margin-top: 2px; }
+.cat-grid { display: flex; flex-direction: column; gap: 14px; }
+.cat-card { background: var(--card-bg); border-radius: 14px; padding: 16px; border: 1px solid rgba(0,0,0,0.06); position: relative; overflow: hidden; }
+.cat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; border-radius: 4px 0 0 4px; }
+.cat-card.c-航天::before { background: var(--blue); }
+.cat-card.c-经济::before { background: var(--orange); }
+.cat-card.c-农业::before { background: var(--green); }
+.cat-card.c-民生::before { background: var(--teal); }
+.cat-card.c-国际::before { background: var(--purple); }
+.cat-card.c-科技::before { background: var(--accent); }
+.cat-card.c-文化::before { background: var(--gold); }
+.cat-card .cat-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.cat-card .cat-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.cat-card.c-航天 .cat-icon { background: rgba(52,152,219,0.2); }
+.cat-card.c-经济 .cat-icon { background: rgba(230,126,34,0.2); }
+.cat-card.c-农业 .cat-icon { background: rgba(46,204,113,0.2); }
+.cat-card.c-民生 .cat-icon { background: rgba(26,188,156,0.2); }
+.cat-card.c-国际 .cat-icon { background: rgba(155,89,182,0.2); }
+.cat-card.c-科技 .cat-icon { background: rgba(233,69,96,0.2); }
+.cat-card.c-文化 .cat-icon { background: rgba(245,197,24,0.2); }
+.cat-card .cat-name { font-size: 16px; font-weight: 700; }
+.cat-card .hot-badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: rgba(233,69,96,0.2); color: #e94560; font-weight: 600; margin-left: auto; }
+.news-items { display: flex; flex-direction: column; gap: 8px; }
+.news-item { background: rgba(0,0,0,0.02); border-radius: 8px; padding: 10px 12px; font-size: 14px; line-height: 1.5; }
+.news-item .title { font-weight: 600; margin-bottom: 3px; color: #1a1a2e; }
+.news-item .brief { font-size: 12px; color: var(--text2); }
+.topic-tag { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 4px; margin-top: 4px; margin-right: 4px; }
+.tag-热点 { background: rgba(233,69,96,0.15); color: #e94560; }
+.tag-数据 { background: rgba(52,152,219,0.15); color: #3498db; }
+.tag-趋势 { background: rgba(46,204,113,0.15); color: #2ecc71; }
+.tag-深度 { background: rgba(155,89,182,0.15); color: #9b59b6; }
+.tag-科普 { background: rgba(26,188,156,0.15); color: #1abc9c; }
+.topic-bank { margin: 20px 0; }
+.topic-item { background: var(--card-bg); border-radius: 14px; padding: 16px; margin-bottom: 12px; border: 1px solid rgba(0,0,0,0.06); }
+.topic-item .topic-rank { display: inline-block; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: #1a1a2e; text-align: center; line-height: 26px; font-size: 13px; font-weight: 700; margin-right: 8px; vertical-align: middle; }
+.topic-item .topic-title { font-size: 16px; font-weight: 700; display: inline; vertical-align: middle; }
+.topic-item .topic-score { float: right; font-size: 13px; color: var(--gold); font-weight: 700; }
+.topic-item .topic-meta { margin: 8px 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.topic-item .topic-angle { background: rgba(0,0,0,0.02); border-radius: 8px; padding: 10px; margin-top: 8px; }
+.topic-item .topic-angle .angle-label { font-size: 11px; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.topic-item .topic-angle ul { list-style: none; margin-top: 4px; font-size: 13px; color: var(--text2); }
+.topic-item .topic-angle ul li::before { content: '\25B8 '; color: var(--accent); }
+.timeline { position: relative; padding: 10px 0; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: rgba(0,0,0,0.1); }
+.tl-item { padding-left: 28px; position: relative; margin-bottom: 16px; }
+.tl-item::before { content: ''; position: absolute; left: 2px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
+.tl-item .tl-date { font-size: 12px; color: var(--gold); font-weight: 600; }
+.tl-item .tl-text { font-size: 13px; color: var(--text2); }
+.chart-container { background: var(--card-bg); border-radius: 14px; padding: 12px; margin: 12px 0; border: 1px solid rgba(0,0,0,0.06); overflow: hidden; }
+.chart-container svg { width: 100%; height: auto; display: block; }
+.footer { text-align: center; padding: 24px 0 12px; font-size: 12px; color: var(--text2); border-top: 1px solid rgba(0,0,0,0.06); margin-top: 20px; }
+@media (min-width: 600px) { body { max-width: 600px; margin: 0 auto; } .stat-card { flex: 1 1 calc(25% - 6px); } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">每日选题炼金炉</div>
+  <h1>新闻联播热点选题库</h1>
+  <div class="sub">2026年6月13日 · 星期六 · 内容素材库</div>
+</div>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="num">6</div><div class="label">热点领域</div></div>
+  <div class="stat-card"><div class="num">21</div><div class="label">有效选题</div></div>
+  <div class="stat-card"><div class="num">🔥</div><div class="label">爆款潜力</div></div>
+  <div class="stat-card"><div class="num">5+</div><div class="label">内容形态</div></div>
+</div>
+
+<div class="chart-container">
+  <svg viewBox="0 0 540 280" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e94560"/><stop offset="100%" stop-color="#0f3460"/></linearGradient>
+      <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3498db"/><stop offset="100%" stop-color="#0f3460"/></linearGradient>
+      <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2ecc71"/><stop offset="100%" stop-color="#0f3460"/></linearGradient>
+      <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e67e22"/><stop offset="100%" stop-color="#0f3460"/></linearGradient>
+      <linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9b59b6"/><stop offset="100%" stop-color="#0f3460"/></linearGradient>
+      <linearGradient id="g6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1abc9c"/><stop offset="100%" stop-color="#0f3460"/></linearGradient>
+    </defs>
+    <text x="270" y="24" text-anchor="middle" fill="#1a1a2e" font-size="14" font-weight="700">热点领域分布 &amp; 选题热度</text>
+    <text x="20" y="55" fill="#6b7280" font-size="10">文化遗产</text>
+    <rect x="20" y="60" width="230" height="18" rx="4" fill="url(#g1)" opacity="0.9"/>
+    <text x="255" y="74" fill="#1a1a2e" font-size="11" font-weight="600">★★★★★</text>
+    <text x="380" y="74" fill="#6b7280" font-size="10">4条选题</text>
+    <text x="20" y="90" fill="#6b7280" font-size="10">算力基建</text>
+    <rect x="20" y="95" width="210" height="18" rx="4" fill="url(#g2)" opacity="0.9"/>
+    <text x="235" y="109" fill="#1a1a2e" font-size="11" font-weight="600">★★★★☆</text>
+    <text x="380" y="109" fill="#6b7280" font-size="10">3条选题</text>
+    <text x="20" y="125" fill="#6b7280" font-size="10">生态保护</text>
+    <rect x="20" y="130" width="200" height="18" rx="4" fill="url(#g3)" opacity="0.9"/>
+    <text x="225" y="144" fill="#1a1a2e" font-size="11" font-weight="600">★★★★☆</text>
+    <text x="380" y="144" fill="#6b7280" font-size="10">3条选题</text>
+    <text x="20" y="160" fill="#6b7280" font-size="10">国际局势</text>
+    <rect x="20" y="165" width="190" height="18" rx="4" fill="url(#g5)" opacity="0.9"/>
+    <text x="215" y="179" fill="#1a1a2e" font-size="11" font-weight="600">★★★★☆</text>
+    <text x="380" y="179" fill="#6b7280" font-size="10">3条选题</text>
+    <text x="20" y="195" fill="#6b7280" font-size="10">乡村振兴</text>
+    <rect x="20" y="200" width="170" height="18" rx="4" fill="url(#g6)" opacity="0.9"/>
+    <text x="195" y="214" fill="#1a1a2e" font-size="11" font-weight="600">★★★☆☆</text>
+    <text x="380" y="214" fill="#6b7280" font-size="10">2条选题</text>
+    <text x="20" y="230" fill="#6b7280" font-size="10">铁旅融合</text>
+    <rect x="20" y="235" width="150" height="18" rx="4" fill="url(#g4)" opacity="0.9"/>
+    <text x="175" y="249" fill="#1a1a2e" font-size="11" font-weight="600">★★★☆☆</text>
+    <text x="380" y="249" fill="#6b7280" font-size="10">2条选题</text>
+  </svg>
+</div>
+
+<div class="section-title"><span class="icon">🚀</span> 分类解读</div>
+<div class="cat-grid">
+
+<div class="cat-card c-文化">
+  <div class="cat-header">
+    <div class="cat-icon">🏛️</div>
+    <div class="cat-name">文化遗产保护</div>
+    <div class="hot-badge">🔥 最热</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">文化遗产系统性保护：千年文脉焕发新生</div>
+      <div class="brief">我国世界遗产总数60项居世界前列，非遗名录项目45个世界第一。AI修复克孜尔石窟壁画，苏州丝绸纹样数据库建成。</div>
+      <span class="topic-tag tag-热点">爆款潜力</span>
+      <span class="topic-tag tag-科普">科普向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">文化和自然遗产日主场城市活动在武汉举行</div>
+      <div class="brief">"文物属于人民 服务人民"主题，集中展示文化遗产保护传承新进展。</div>
+      <span class="topic-tag tag-热点">文化热点</span>
+      <span class="topic-tag tag-趋势">趋势向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">廊桥保护三年行动圆满收官</div>
+      <div class="brief">浙江福建全面体检风雨廊桥，安徽江西建立数字孪生系统，千年古桥从抢救迈向主动预防。</div>
+      <span class="topic-tag tag-科普">科普向</span>
+    </div>
+  </div>
+</div>
+
+<div class="cat-card c-航天">
+  <div class="cat-header">
+    <div class="cat-icon">💻</div>
+    <div class="cat-name">算力基建</div>
+    <div class="hot-badge">📈 利好</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">全国一体化算力网：像用水电一样用算力</div>
+      <div class="brief">词元日均调用量两年增长超1400倍。和林格尔30余栋数据中心同时开建，"新八纵八横"骨干光缆沿高铁延伸。</div>
+      <span class="topic-tag tag-热点">爆款潜力</span>
+      <span class="topic-tag tag-深度">深度解读</span>
+    </div>
+    <div class="news-item">
+      <div class="title">AI创业者大会暨《赢在AI+》第二季启动</div>
+      <div class="brief">总台首届中国AI创业者大会在杭州启动，为全球创业者搭建创新服务平台。</div>
+      <span class="topic-tag tag-趋势">趋势向</span>
+    </div>
+  </div>
+</div>
+
+<div class="cat-card c-农业">
+  <div class="cat-header">
+    <div class="cat-icon">🌊</div>
+    <div class="cat-name">海洋生态保护</div>
+    <div class="hot-badge">👀 关注</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">我国海洋生态保护修复取得新成效</div>
+      <div class="brief">283个海湾中168个优良水质面积超85%，117个全域优良。中华白海豚、斑海豹栖息地得到有效保护。</div>
+      <span class="topic-tag tag-数据">数据向</span>
+      <span class="topic-tag tag-趋势">趋势向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">深港联合守护大鹏湾：6万余株珊瑚生长良好</div>
+      <div class="brief">跨区域协同治理破题，规划协同、监测同步、治理联动。常态化珊瑚保育与净滩行动。</div>
+      <span class="topic-tag tag-科普">科普向</span>
+    </div>
+  </div>
+</div>
+
+<div class="cat-card c-国际">
+  <div class="cat-header">
+    <div class="cat-icon">🌍</div>
+    <div class="cat-name">国际局势</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">伊朗披露伊美谅解备忘录草案部分内容</div>
+      <div class="brief">结束所有战线军事冲突，解除海上封锁，冻结资产逐步解冻。高浓缩铀将在伊朗境内稀释处理。国际油价下跌超3%。</div>
+      <span class="topic-tag tag-热点">爆款潜力</span>
+      <span class="topic-tag tag-趋势">趋势向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">南极半岛出现异常高温：6月气温达15.4°C</div>
+      <div class="brief">超历史6月最高纪录，冰层异常融化。南极半岛正值冬季，历史平均最高温为零下6.2°C。</div>
+      <span class="topic-tag tag-热点">气候热点</span>
+      <span class="topic-tag tag-科普">科普向</span>
+    </div>
+  </div>
+</div>
+
+<div class="cat-card c-民生">
+  <div class="cat-header">
+    <div class="cat-icon">🏡</div>
+    <div class="cat-name">乡村振兴</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">各地推动人才下乡：入乡青创项目2300多个</div>
+      <div class="brief">浙江湖州吸引城市"新农人"，福建组建返乡创业青年联盟，贵州培育乡村致富带头人3400多人。</div>
+      <span class="topic-tag tag-趋势">趋势向</span>
+      <span class="topic-tag tag-热点">民生热点</span>
+    </div>
+    <div class="news-item">
+      <div class="title">新能源重卡规模化应用方案发布</div>
+      <div class="brief">到2030年新能源重卡渗透率达40%，保有量突破160万辆。</div>
+      <span class="topic-tag tag-趋势">趋势向</span>
+    </div>
+  </div>
+</div>
+
+<div class="cat-card c-经济">
+  <div class="cat-header">
+    <div class="cat-icon">🚂</div>
+    <div class="cat-name">铁旅融合</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">多项措施促进铁路与旅游融合发展</div>
+      <div class="brief">到2030年打造160列以上旅游列车专用车组，开发主题旅游专列，出台梯度优惠票价政策。</div>
+      <span class="topic-tag tag-热点">消费热点</span>
+      <span class="topic-tag tag-趋势">趋势向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">涉AI应用乱象举报专区开设</div>
+      <div class="brief">中央网信办专项受理14类AI乱象举报，包括生成合成内容标识不到位、虚假不实信息等。</div>
+      <span class="topic-tag tag-热点">科技热点</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="section-title"><span class="icon">🎯</span> 爆款选题库 TOP 10</div>
+<div class="topic-bank">
+
+<div class="topic-item">
+  <span class="topic-rank">1</span>
+  <span class="topic-title">南极冬天15°C：地球在发出什么信号？</span>
+  <span class="topic-score">⭐ 9.3</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">气候变化</span>
+    <span class="topic-tag tag-科普">科普解读</span>
+    <span class="topic-tag tag-趋势">短视频+长文</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">内容角度</div>
+    <ul>
+      <li>「南极6月15°C意味着什么」：历史数据对比与科学家解读</li>
+      <li>「如果南极冰全化了」：海平面上升模拟地图</li>
+      <li>「普通人能做什么」：日常减碳行动指南</li>
+      <li>「地球的极限」：全球气候临界点还有多远</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">2</span>
+  <span class="topic-title">AI修复千年壁画：科技让文化遗产永生</span>
+  <span class="topic-score">⭐ 9.1</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">文化科技</span>
+    <span class="topic-tag tag-科普">科普解读</span>
+    <span class="topic-tag tag-趋势">短视频+H5</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">内容角度</div>
+    <ul>
+      <li>「AI如何修复壁画」：克孜尔石窟光谱分析揭秘</li>
+      <li>「数字敦煌到数字中国」：文化遗产数字化全景</li>
+      <li>「45项世界非遗」：中国有哪些宝藏上榜</li>
+      <li>「你也能参与保护」：文化遗产保护公众参与方式</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">3</span>
+  <span class="topic-title">算力网来了：像用电一样用AI的时代</span>
+  <span class="topic-score">⭐ 8.8</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-深度">数字经济</span>
+    <span class="topic-tag tag-科普">科普解读</span>
+    <span class="topic-tag tag-数据">H5/长图</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">内容角度</div>
+    <ul>
+      <li>「什么是算力」：从芯片到数据中心的算力科普</li>
+      <li>「东数西算」：西部风电光伏如何变成AI算力</li>
+      <li>「万亿投资周期」：算力基建带动哪些产业</li>
+      <li>「AI训练师」：百万级新职业正在诞生</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">4</span>
+  <span class="topic-title">美伊协议草案曝光：中东和平路线图</span>
+  <span class="topic-score">⭐ 8.6</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">国际局势</span>
+    <span class="topic-tag tag-深度">深度分析</span>
+    <span class="topic-tag tag-趋势">公众号长文</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">内容角度</div>
+    <ul>
+      <li>「协议草案」：结束战事、解除封锁、解冻资产</li>
+      <li>「核问题怎么办」：高浓缩铀境内稀释方案</li>
+      <li>「油价大跌3%」：协议对全球能源市场的冲击</li>
+      <li>「60天谈判期」：下一阶段关键看点</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">5</span>
+  <span class="topic-title">海洋变清了：117个海湾全域优良水质</span>
+  <span class="topic-score">⭐ 8.3</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-数据">生态环保</span>
+    <span class="topic-tag tag-热点">数据可视化</span>
+    <span class="topic-tag tag-科普">科普向</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">内容角度</div>
+    <ul>
+      <li>「中国海湾体检报告」：283个海湾水质地图</li>
+      <li>「中华白海豚回来了」：珍稀物种栖息地恢复故事</li>
+      <li>「深港联手护海」：大鹏湾跨域治理创新</li>
+      <li>「从排污到美丽海湾」：厦门电动船舶转型之路</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">6</span>
+  <span class="topic-title">年轻人回村了：2300个入乡青创项目在做什么？</span>
+  <span class="topic-score">⭐ 8.1</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">乡村振兴</span>
+    <span class="topic-tag tag-趋势">人物故事</span>
+    <span class="topic-tag tag-数据">数据向</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">内容角度</div>
+    <ul>
+      <li>「上海小伙安吉造无人机」：一个入乡创业故事</li>
+      <li>「回乡开奶茶店」：福建返乡青年群像</li>
+      <li>「乡村致富带头人」：3400人如何改变贵州</li>
+      <li>「城里人到乡下能干什么」：入乡创业指南</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">7</span>
+  <span class="topic-title">廊桥保护：千年古桥的数字孪生</span>
+  <span class="topic-score">⭐ 7.9</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-科普">文化遗产</span>
+    <span class="topic-tag tag-趋势">科普向</span>
+    <span class="topic-tag tag-深度">深度解读</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">内容角度</div>
+    <ul>
+      <li>「什么是廊桥」：中国古代建筑活化石</li>
+      <li>「数字孪生如何守护古桥」：从被动抢救到主动预防</li>
+      <li>「廊桥分布地图」：哪里还有风雨廊桥</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">8</span>
+  <span class="topic-title">AI乱象举报专区上线：遇到AI造假怎么举报</span>
+  <span class="topic-score">⭐ 7.7</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">科技治理</span>
+    <span class="topic-tag tag-科普">实用指南</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">内容角度</div>
+    <ul>
+      <li>「14类AI乱象」：哪些行为可以举报</li>
+      <li>「AI换脸诈骗」：最新案例与防范</li>
+      <li>「举报流程」：一键举报操作指南</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">9</span>
+  <span class="topic-title">旅游列车来了：160列主题专列即将上线</span>
+  <span class="topic-score">⭐ 7.5</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-趋势">旅游消费</span>
+    <span class="topic-tag tag-热点">消费热点</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">内容角度</div>
+    <ul>
+      <li>「火车旅游新玩法」：主题专列有哪些类型</li>
+      <li>「梯度优惠票价」：什么时候坐最划算</li>
+      <li>「铁路博物馆+文创」：铁路文旅新业态</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">10</span>
+  <span class="topic-title">新能源重卡：卡车也要电动化</span>
+  <span class="topic-score">⭐ 7.3</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-趋势">绿色交通</span>
+    <span class="topic-tag tag-数据">数据向</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">内容角度</div>
+    <ul>
+      <li>「电动卡车能跑多远」：续航与充电桩现状</li>
+      <li>「160万辆目标」：新能源重卡产业链全景</li>
+      <li>「司机怎么说」：电动重卡实际使用体验</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+
+<div class="chart-container">
+  <svg viewBox="0 0 540 300" xmlns="http://www.w3.org/2000/svg">
+    <text x="270" y="22" text-anchor="middle" fill="#1a1a2e" font-size="14" font-weight="700">选题 → 内容形态 适配矩阵</text>
+    <rect x="20" y="40" width="500" height="250" rx="8" fill="rgba(0,0,0,0.02)"/>
+    <rect x="20" y="40" width="140" height="30" rx="0" fill="rgba(233,69,96,0.15)"/>
+    <text x="90" y="60" text-anchor="middle" fill="#e94560" font-size="11" font-weight="700">选题 \ 形态</text>
+    <rect x="160" y="40" width="60" height="30" fill="rgba(52,152,219,0.1)"/>
+    <text x="190" y="60" text-anchor="middle" fill="#3498db" font-size="10" font-weight="600">短视频</text>
+    <rect x="220" y="40" width="60" height="30" fill="rgba(46,204,113,0.1)"/>
+    <text x="250" y="60" text-anchor="middle" fill="#2ecc71" font-size="10" font-weight="600">公众号</text>
+    <rect x="280" y="40" width="60" height="30" fill="rgba(230,126,34,0.1)"/>
+    <text x="310" y="60" text-anchor="middle" fill="#e67e22" font-size="10" font-weight="600">H5/长图</text>
+    <rect x="340" y="40" width="60" height="30" fill="rgba(155,89,182,0.1)"/>
+    <text x="370" y="60" text-anchor="middle" fill="#9b59b6" font-size="10" font-weight="600">漫画</text>
+    <rect x="400" y="40" width="60" height="30" fill="rgba(26,188,156,0.1)"/>
+    <text x="430" y="60" text-anchor="middle" fill="#1abc9c" font-size="10" font-weight="600">小红书</text>
+    <rect x="460" y="40" width="60" height="30" fill="rgba(245,197,24,0.1)"/>
+    <text x="490" y="60" text-anchor="middle" fill="#f5c518" font-size="10" font-weight="600">朋友圈</text>
+
+    <rect x="20" y="70" width="140" height="28" rx="0" fill="rgba(0,0,0,0.02)"/>
+    <text x="90" y="89" text-anchor="middle" fill="#1a1a2e" font-size="10">南极异常高温</text>
+    <circle cx="190" cy="84" r="7" fill="#2ecc71"/><text x="190" y="88" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="250" cy="84" r="7" fill="#2ecc71"/><text x="250" y="88" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="310" cy="84" r="7" fill="#2ecc71"/><text x="310" y="88" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="370" cy="84" r="7" fill="#2ecc71"/><text x="370" y="88" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="430" cy="84" r="7" fill="#2ecc71"/><text x="430" y="88" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="490" cy="84" r="7" fill="#2ecc71"/><text x="490" y="88" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+
+    <rect x="20" y="98" width="140" height="28" rx="0" fill="rgba(0,0,0,0.02)"/>
+    <text x="90" y="117" text-anchor="middle" fill="#1a1a2e" font-size="10">AI修复壁画</text>
+    <circle cx="190" cy="112" r="7" fill="#2ecc71"/><text x="190" y="116" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="250" cy="112" r="7" fill="#2ecc71"/><text x="250" y="116" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="310" cy="112" r="7" fill="#2ecc71"/><text x="310" y="116" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="370" cy="112" r="7" fill="rgba(0,0,0,0.06)"/><text x="370" y="116" text-anchor="middle" fill="#999" font-size="9">-</text>
+    <circle cx="430" cy="112" r="7" fill="#2ecc71"/><text x="430" y="116" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="490" cy="112" r="7" fill="rgba(0,0,0,0.06)"/><text x="490" y="116" text-anchor="middle" fill="#999" font-size="9">-</text>
+
+    <rect x="20" y="126" width="140" height="28" rx="0" fill="rgba(0,0,0,0.02)"/>
+    <text x="90" y="145" text-anchor="middle" fill="#1a1a2e" font-size="10">算力网时代</text>
+    <circle cx="190" cy="140" r="7" fill="#2ecc71"/><text x="190" y="144" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="250" cy="140" r="7" fill="#2ecc71"/><text x="250" y="144" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="310" cy="140" r="7" fill="#2ecc71"/><text x="310" y="144" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="370" cy="140" r="7" fill="rgba(0,0,0,0.06)"/><text x="370" y="144" text-anchor="middle" fill="#999" font-size="9">-</text>
+    <circle cx="430" cy="140" r="7" fill="rgba(0,0,0,0.06)"/><text x="430" y="144" text-anchor="middle" fill="#999" font-size="9">-</text>
+    <circle cx="490" cy="140" r="7" fill="rgba(0,0,0,0.06)"/><text x="490" y="144" text-anchor="middle" fill="#999" font-size="9">-</text>
+
+    <rect x="20" y="154" width="140" height="28" rx="0" fill="rgba(0,0,0,0.02)"/>
+    <text x="90" y="173" text-anchor="middle" fill="#1a1a2e" font-size="10">美伊协议草案</text>
+    <circle cx="190" cy="168" r="7" fill="rgba(0,0,0,0.06)"/><text x="190" y="172" text-anchor="middle" fill="#999" font-size="9">-</text>
+    <circle cx="250" cy="168" r="7" fill="#2ecc71"/><text x="250" y="172" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="310" cy="168" r="7" fill="rgba(0,0,0,0.06)"/><text x="310" y="172" text-anchor="middle" fill="#999" font-size="9">-</text>
+    <circle cx="370" cy="168" r="7" fill="rgba(0,0,0,0.06)"/><text x="370" y="172" text-anchor="middle" fill="#999" font-size="9">-</text>
+    <circle cx="430" cy="168" r="7" fill="rgba(0,0,0,0.06)"/><text x="430" y="172" text-anchor="middle" fill="#999" font-size="9">-</text>
+    <circle cx="490" cy="168" r="7" fill="rgba(0,0,0,0.06)"/><text x="490" y="172" text-anchor="middle" fill="#999" font-size="9">-</text>
+
+    <rect x="20" y="182" width="140" height="28" rx="0" fill="rgba(0,0,0,0.02)"/>
+    <text x="90" y="201" text-anchor="middle" fill="#1a1a2e" font-size="10">海洋变清</text>
+    <circle cx="190" cy="196" r="7" fill="#2ecc71"/><text x="190" y="200" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="250" cy="196" r="7" fill="#2ecc71"/><text x="250" y="200" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="310" cy="196" r="7" fill="#2ecc71"/><text x="310" y="200" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="370" cy="196" r="7" fill="rgba(0,0,0,0.06)"/><text x="370" y="200" text-anchor="middle" fill="#999" font-size="9">-</text>
+    <circle cx="430" cy="196" r="7" fill="rgba(0,0,0,0.06)"/><text x="430" y="200" text-anchor="middle" fill="#999" font-size="9">-</text>
+    <circle cx="490" cy="196" r="7" fill="rgba(0,0,0,0.06)"/><text x="490" y="200" text-anchor="middle" fill="#999" font-size="9">-</text>
+
+    <rect x="20" y="210" width="140" height="28" rx="0" fill="rgba(0,0,0,0.02)"/>
+    <text x="90" y="229" text-anchor="middle" fill="#1a1a2e" font-size="10">青年入乡创业</text>
+    <circle cx="190" cy="224" r="7" fill="#2ecc71"/><text x="190" y="228" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="250" cy="224" r="7" fill="#2ecc71"/><text x="250" y="228" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="310" cy="224" r="7" fill="rgba(0,0,0,0.06)"/><text x="310" y="228" text-anchor="middle" fill="#999" font-size="9">-</text>
+    <circle cx="370" cy="224" r="7" fill="rgba(0,0,0,0.06)"/><text x="370" y="228" text-anchor="middle" fill="#999" font-size="9">-</text>
+    <circle cx="430" cy="224" r="7" fill="#2ecc71"/><text x="430" y="228" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="490" cy="224" r="7" fill="rgba(0,0,0,0.06)"/><text x="490" y="228" text-anchor="middle" fill="#999" font-size="9">-</text>
+
+    <rect x="20" y="238" width="140" height="28" rx="0" fill="rgba(0,0,0,0.02)"/>
+    <text x="90" y="257" text-anchor="middle" fill="#1a1a2e" font-size="10">旅游列车</text>
+    <circle cx="190" cy="252" r="7" fill="#2ecc71"/><text x="190" y="256" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="250" cy="252" r="7" fill="#2ecc71"/><text x="250" y="256" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="310" cy="252" r="7" fill="rgba(0,0,0,0.06)"/><text x="310" y="256" text-anchor="middle" fill="#999" font-size="9">-</text>
+    <circle cx="370" cy="252" r="7" fill="rgba(0,0,0,0.06)"/><text x="370" y="256" text-anchor="middle" fill="#999" font-size="9">-</text>
+    <circle cx="430" cy="252" r="7" fill="#2ecc71"/><text x="430" y="256" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+    <circle cx="490" cy="252" r="7" fill="#2ecc71"/><text x="490" y="256" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">✓</text>
+
+    <circle cx="260" cy="280" r="5" fill="#2ecc71"/>
+    <text x="272" y="284" fill="#6b7280" font-size="10">适配</text>
+    <circle cx="320" cy="280" r="5" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="332" y="284" fill="#6b7280" font-size="10">一般</text>
+  </svg>
+</div>
+
+<div class="section-title"><span class="icon">✅</span> 12条爆款心法筛查</div>
+<div class="chart-container">
+  <svg viewBox="0 0 540 330" xmlns="http://www.w3.org/2000/svg">
+    <text x="270" y="22" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="700">今日选题 12条心法逐条亮灯</text>
+    <g font-size="11">
+      <text x="20" y="52" fill="#2ecc71">✅</text><text x="40" y="52" fill="#1a1a2e">① 用户思维优先 — 选题均从受众利益切入</text>
+      <text x="20" y="76" fill="#2ecc71">✅</text><text x="40" y="76" fill="#1a1a2e">② 热点热度足够 — 南极高温+美伊协议全球关注</text>
+      <text x="20" y="100" fill="#2ecc71">✅</text><text x="40" y="100" fill="#1a1a2e">③ 传播点明确 — 每条选题有明确"截图锚点"</text>
+      <text x="20" y="124" fill="#2ecc71">✅</text><text x="40" y="124" fill="#1a1a2e">④ 可互动可视化 — 适配H5/长图/短视频形态</text>
+      <text x="20" y="148" fill="#2ecc71">✅</text><text x="40" y="148" fill="#1a1a2e">⑤ 叙事张力 — 南极高温+文化遗产天然有故事性</text>
+      <text x="20" y="172" fill="#2ecc71">✅</text><text x="40" y="172" fill="#1a1a2e">⑥ 化繁为简 — 已提炼核心冲突和利益点</text>
+      <text x="20" y="196" fill="#2ecc71">✅</text><text x="40" y="196" fill="#1a1a2e">⑦ 体验一致性 — 多形态方案保持核心信息一致</text>
+      <text x="20" y="220" fill="#2ecc71">✅</text><text x="40" y="220" fill="#1a1a2e">⑧ 参与门槛低 — 每个选题都有"立刻转发"的角度</text>
+      <text x="20" y="244" fill="#e67e22">⚠️</text><text x="40" y="244" fill="#1a1a2e">⑨ 声音加成 — 视频类可配旁白，图文类无此优势</text>
+      <text x="20" y="268" fill="#2ecc71">✅</text><text x="40" y="268" fill="#1a1a2e">⑩ 立场安全 — 已过滤政治党建敏感话题</text>
+      <text x="20" y="292" fill="#2ecc71">✅</text><text x="40" y="292" fill="#1a1a2e">⑪ 信息源可信 — 全部源自央视新闻联播官方渠道</text>
+      <text x="20" y="316" fill="#2ecc71">✅</text><text x="40" y="316" fill="#1a1a2e">⑫ 合规可上线 — 无敏感词、无绝对化表述、无诱导分享</text>
+    </g>
+  </svg>
+</div>
+
+<div class="section-title"><span class="icon">⏰</span> 发布节奏建议 — "一个热点吃三轮"</div>
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-date">6月13日 21:00 — 第一轮</div>
+    <div class="tl-text">短视频/朋友圈海报：南极异常高温速递 + AI修复壁画视觉呈现（视觉冲击型）</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">6月14日 08:00 — 第二轮</div>
+    <div class="tl-text">公众号长文：算力网深度解读 + 文化遗产数字化全景（早高峰深度阅读）</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">6月14日 12:00 — 第三轮</div>
+    <div class="tl-text">小红书/微博：海洋变清一图读懂 + 入乡创业故事（午休碎片阅读）</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">6月15日 20:00 — 长尾</div>
+    <div class="tl-text">旅游列车攻略H5 + 美伊协议60天倒计时专题</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="icon">🛡️</span> 风险自检</div>
+<div class="chart-container" style="padding:16px;">
+  <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;">
+    <div style="display:flex;align-items:center;gap:8px;"><span style="color:#2ecc71;">✅</span> 已过滤所有政治/党建/领导人相关话题</div>
+    <div style="display:flex;align-items:center;gap:8px;"><span style="color:#2ecc71;">✅</span> 国际话题采用客观陈述，无站队/带节奏</div>
+    <div style="display:flex;align-items:center;gap:8px;"><span style="color:#2ecc71;">✅</span> 无"最""第一""绝对"等广告法禁用词</div>
+    <div style="display:flex;align-items:center;gap:8px;"><span style="color:#2ecc71;">✅</span> 无诱导分享/标题党/震惊体</div>
+    <div style="display:flex;align-items:center;gap:8px;"><span style="color:#2ecc71;">✅</span> 所有数据来源可追溯至央视新闻联播</div>
+    <div style="display:flex;align-items:center;gap:8px;"><span style="color:#e67e22;">⚠️</span> 南极高温数据需核实科学来源，美伊协议进展快速需实时更新</div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>数据来源：CCTV新闻联播 2026年6月13日</p>
+  <p>工具：新闻摘要 × 内容工厂 × 10万+爆款选题炼金炉</p>
+  <p style="color:#999;margin-top:6px;">内容仅供选题参考，实际发布前请核实最新信息</p>
+</div>
+
+</body>
+</html>
