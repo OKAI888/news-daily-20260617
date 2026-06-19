@@ -137,54 +137,45 @@ body{
 
 <!-- OVERVIEW CHART -->
 <div class="chart-container">
-  <svg viewBox="0 0 540 280" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e94560"/><stop offset="100%" stop-color="#0f3460"/></linearGradient>
-      <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3498db"/><stop offset="100%" stop-color="#0f3460"/></linearGradient>
-      <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2ecc71"/><stop offset="100%" stop-color="#0f3460"/></linearGradient>
-      <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e67e22"/><stop offset="100%" stop-color="#0f3460"/></linearGradient>
-      <linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9b59b6"/><stop offset="100%" stop-color="#0f3460"/></linearGradient>
-      <linearGradient id="g6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1abc9c"/><stop offset="100%" stop-color="#0f3460"/></linearGradient>
-      <linearGradient id="g7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f5c518"/><stop offset="100%" stop-color="#0f3460"/></linearGradient>
-    </defs>
-    <!-- Title -->
-    <text x="270" y="24" text-anchor="middle" fill="#1a1a2e" font-size="14" font-weight="700">📊 热点领域分布 &amp; 选题热度</text>
-    <!-- Bar chart -->
-    <text x="20" y="55" fill="#6b7280" font-size="10">民生工程</text>
-    <rect x="20" y="60" width="230" height="18" rx="4" fill="url(#g6)" opacity="0.9"/>
-    <text x="255" y="74" fill="#1a1a2e" font-size="11" font-weight="600">★★★★★</text>
-    <text x="380" y="74" fill="#6b7280" font-size="10">5条选题</text>
-
-    <text x="20" y="90" fill="#6b7280" font-size="10">美伊停火</text>
-    <rect x="20" y="95" width="220" height="18" rx="4" fill="url(#g5)" opacity="0.9"/>
-    <text x="245" y="109" fill="#1a1a2e" font-size="11" font-weight="600">★★★★★</text>
-    <text x="380" y="109" fill="#6b7280" font-size="10">4条选题</text>
-
-    <text x="20" y="125" fill="#6b7280" font-size="10">农业丰收</text>
-    <rect x="20" y="130" width="200" height="18" rx="4" fill="url(#g3)" opacity="0.9"/>
-    <text x="225" y="144" fill="#1a1a2e" font-size="11" font-weight="600">★★★★☆</text>
-    <text x="380" y="144" fill="#6b7280" font-size="10">3条选题</text>
-
-    <text x="20" y="160" fill="#6b7280" font-size="10">能源科技</text>
-    <rect x="20" y="165" width="180" height="18" rx="4" fill="url(#g1)" opacity="0.9"/>
-    <text x="205" y="179" fill="#1a1a2e" font-size="11" font-weight="600">★★★★☆</text>
-    <text x="380" y="179" fill="#6b7280" font-size="10">3条选题</text>
-
-    <text x="20" y="195" fill="#6b7280" font-size="10">入境旅游</text>
-    <rect x="20" y="200" width="160" height="18" rx="4" fill="url(#g7)" opacity="0.9"/>
-    <text x="185" y="214" fill="#1a1a2e" font-size="11" font-weight="600">★★★☆☆</text>
-    <text x="380" y="214" fill="#6b7280" font-size="10">3条选题</text>
-
-    <text x="20" y="230" fill="#6b7280" font-size="10">招聘就业</text>
-    <rect x="20" y="235" width="140" height="18" rx="4" fill="url(#g4)" opacity="0.9"/>
-    <text x="165" y="249" fill="#1a1a2e" font-size="11" font-weight="600">★★★☆☆</text>
-    <text x="380" y="249" fill="#6b7280" font-size="10">2条选题</text>
-
-    <text x="20" y="265" fill="#6b7280" font-size="10">航天卫星</text>
-    <rect x="20" y="270" width="130" height="18" rx="4" fill="url(#g2)" opacity="0.9"/>
-    <text x="155" y="284" fill="#1a1a2e" font-size="11" font-weight="600">★★★☆☆</text>
-    <text x="380" y="284" fill="#6b7280" font-size="10">2条选题</text>
-  </svg>
+  <div class="section-title" style="margin-top:0;"><span class="icon">📊</span> 热点领域分布 &amp; 选题热度</div>
+  <div class="bar-chart">
+    <div class="bar-row">
+      <div class="bar-label">民生工程</div>
+      <div class="bar-track"><div class="bar-fill" style="width:92%;background:linear-gradient(90deg,#1abc9c,#16a085)"><span class="bar-stars">★★★★★</span></div></div>
+      <div class="bar-count">5条选题</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">美伊停火</div>
+      <div class="bar-track"><div class="bar-fill" style="width:88%;background:linear-gradient(90deg,#9b59b6,#8e44ad)"><span class="bar-stars">★★★★★</span></div></div>
+      <div class="bar-count">4条选题</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">农业丰收</div>
+      <div class="bar-track"><div class="bar-fill" style="width:80%;background:linear-gradient(90deg,#2ecc71,#27ae60)"><span class="bar-stars">★★★★☆</span></div></div>
+      <div class="bar-count">3条选题</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">能源科技</div>
+      <div class="bar-track"><div class="bar-fill" style="width:72%;background:linear-gradient(90deg,#e94560,#c0392b)"><span class="bar-stars">★★★★☆</span></div></div>
+      <div class="bar-count">3条选题</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">入境旅游</div>
+      <div class="bar-track"><div class="bar-fill" style="width:64%;background:linear-gradient(90deg,#f5c518,#e67e22)"><span class="bar-stars">★★★☆☆</span></div></div>
+      <div class="bar-count">3条选题</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">招聘就业</div>
+      <div class="bar-track"><div class="bar-fill" style="width:56%;background:linear-gradient(90deg,#e67e22,#d35400)"><span class="bar-stars">★★★☆☆</span></div></div>
+      <div class="bar-count">2条选题</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">航天卫星</div>
+      <div class="bar-track"><div class="bar-fill" style="width:52%;background:linear-gradient(90deg,#3498db,#2980b9)"><span class="bar-stars">★★★☆☆</span></div></div>
+      <div class="bar-count">2条选题</div>
+    </div>
+  </div>
+</div>
 </div>
 
 <!-- ====== CATEGORY CARDS ====== -->
