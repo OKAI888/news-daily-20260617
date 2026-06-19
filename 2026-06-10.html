@@ -9,317 +9,102 @@
   --bg: #f8f9fa;
   --card-bg: #ffffff;
   --accent: #e94560;
-  --accent2: #0f3460;
   --gold: #f5c518;
   --text: #1a1a2e;
   --text2: #6b7280;
-  --green: #2ecc71;
   --blue: #3498db;
+  --green: #2ecc71;
   --orange: #e67e22;
   --purple: #9b59b6;
   --teal: #1abc9c;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  padding: 16px;
-  max-width: 100vw;
-  overflow-x: hidden;
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:16px;
+  line-height:1.8;
+  padding:20px 16px;
+  max-width:100vw;
+  overflow-x:hidden;
 }
-.header {
-  text-align: center;
-  padding: 20px 0 10px;
-  position: relative;
-}
-.header .badge {
-  display: inline-block;
-  background: var(--accent);
-  color: #1a1a2e;
-  padding: 4px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  letter-spacing: 1px;
-}
-.header h1 {
-  font-size: 22px;
-  font-weight: 800;
-  background: linear-gradient(135deg, #e94560, #f5c518);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 6px 0;
-}
-.header .sub {
-  font-size: 13px;
-  color: var(--text2);
-}
-.section-title {
-  font-size: 17px;
-  font-weight: 700;
-  margin: 24px 0 12px;
-  padding-left: 12px;
-  border-left: 3px solid var(--accent);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.section-title .icon { font-size: 20px; }
-
-.stats-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 16px 0;
-}
-.stat-card {
-  flex: 1 1 calc(50% - 4px);
-  min-width: 140px;
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 14px 12px;
-  text-align: center;
-  border: 1px solid rgba(0,0,0,0.06);
-}
-.stat-card .num {
-  font-size: 28px;
-  font-weight: 800;
-  background: linear-gradient(135deg, #e94560, #f5c518);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.stat-card .label {
-  font-size: 12px;
-  color: var(--text2);
-  margin-top: 2px;
-}
-
-.cat-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.cat-card {
-  background: var(--card-bg);
-  border-radius: 14px;
-  padding: 16px;
-  border: 1px solid rgba(0,0,0,0.06);
-  position: relative;
-  overflow: hidden;
-}
-.cat-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 4px;
-  height: 100%;
-  border-radius: 4px 0 0 4px;
-}
-.cat-card.c-航天::before { background: var(--blue); }
-.cat-card.c-经济::before { background: var(--orange); }
-.cat-card.c-农业::before { background: var(--green); }
-.cat-card.c-民生::before { background: var(--teal); }
-.cat-card.c-国际::before { background: var(--purple); }
-.cat-card.c-科技::before { background: var(--accent); }
-.cat-card.c-文化::before { background: var(--gold); }
-
-.cat-card .cat-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.cat-card .cat-icon {
-  width: 32px; height: 32px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-}
-.cat-card.c-航天 .cat-icon { background: rgba(52,152,219,0.2); }
-.cat-card.c-经济 .cat-icon { background: rgba(230,126,34,0.2); }
-.cat-card.c-农业 .cat-icon { background: rgba(46,204,113,0.2); }
-.cat-card.c-民生 .cat-icon { background: rgba(26,188,156,0.2); }
-.cat-card.c-国际 .cat-icon { background: rgba(155,89,182,0.2); }
-.cat-card.c-科技 .cat-icon { background: rgba(233,69,96,0.2); }
-.cat-card.c-文化 .cat-icon { background: rgba(245,197,24,0.2); }
-
-.cat-card .cat-name {
-  font-size: 16px;
-  font-weight: 700;
-}
-.cat-card .hot-badge {
-  font-size: 11px;
-  padding: 2px 8px;
-  border-radius: 10px;
-  background: rgba(233,69,96,0.2);
-  color: #e94560;
-  font-weight: 600;
-  margin-left: auto;
-}
-.news-items { display: flex; flex-direction: column; gap: 8px; }
-.news-item {
-  background: rgba(0,0,0,0.02);
-  border-radius: 8px;
-  padding: 10px 12px;
-  font-size: 14px;
-  line-height: 1.5;
-}
-.news-item .title {
-  font-weight: 600;
-  margin-bottom: 3px;
-  color: #1a1a2e;
-}
-.news-item .brief {
-  font-size: 12px;
-  color: var(--text2);
-}
-.topic-tag {
-  display: inline-block;
-  font-size: 11px;
-  padding: 1px 8px;
-  border-radius: 4px;
-  margin-top: 4px;
-  margin-right: 4px;
-}
-.tag-热点 { background: rgba(233,69,96,0.15); color: #e94560; }
-.tag-数据 { background: rgba(52,152,219,0.15); color: #3498db; }
-.tag-趋势 { background: rgba(46,204,113,0.15); color: #2ecc71; }
-.tag-深度 { background: rgba(155,89,182,0.15); color: #9b59b6; }
-.tag-科普 { background: rgba(26,188,156,0.15); color: #1abc9c; }
-
-.topic-bank {
-  margin: 20px 0;
-}
-.topic-item {
-  background: var(--card-bg);
-  border-radius: 14px;
-  padding: 16px;
-  margin-bottom: 12px;
-  border: 1px solid rgba(0,0,0,0.06);
-}
-.topic-item .topic-rank {
-  display: inline-block;
-  width: 26px; height: 26px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #1a1a2e;
-  text-align: center;
-  line-height: 26px;
-  font-size: 13px;
-  font-weight: 700;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-.topic-item .topic-title {
-  font-size: 16px;
-  font-weight: 700;
-  display: inline;
-  vertical-align: middle;
-}
-.topic-item .topic-score {
-  float: right;
-  font-size: 13px;
-  color: var(--gold);
-  font-weight: 700;
-}
-.topic-item .topic-meta {
-  margin: 8px 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.topic-item .topic-angle {
-  background: rgba(0,0,0,0.02);
-  border-radius: 8px;
-  padding: 10px;
-  margin-top: 8px;
-}
-.topic-item .topic-angle .angle-label {
-  font-size: 11px;
-  color: var(--accent);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.topic-item .topic-angle ul {
-  list-style: none;
-  margin-top: 4px;
-  font-size: 13px;
-  color: var(--text2);
-}
-.topic-item .topic-angle ul li::before {
-  content: '\25B8 ';
-  color: var(--accent);
-}
-
-.timeline {
-  position: relative;
-  padding: 10px 0;
-}
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 8px; top: 0; bottom: 0;
-  width: 2px;
-  background: rgba(0,0,0,0.1);
-}
-.tl-item {
-  padding-left: 28px;
-  position: relative;
-  margin-bottom: 16px;
-}
-.tl-item::before {
-  content: '';
-  position: absolute;
-  left: 2px; top: 6px;
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-.tl-item .tl-date {
-  font-size: 12px;
-  color: var(--gold);
-  font-weight: 600;
-}
-.tl-item .tl-text {
-  font-size: 13px;
-  color: var(--text2);
-}
-
-.chart-container {
-  background: var(--card-bg);
-  border-radius: 14px;
-  padding: 12px;
-  margin: 12px 0;
-  border: 1px solid rgba(0,0,0,0.06);
-  overflow: hidden;
-}
-.chart-container svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.footer {
-  text-align: center;
-  padding: 24px 0 12px;
-  font-size: 12px;
-  color: var(--text2);
-  border-top: 1px solid rgba(0,0,0,0.06);
-  margin-top: 20px;
-}
-
-@media (min-width: 600px) {
-  body { max-width: 600px; margin: 0 auto; }
-  .stat-card { flex: 1 1 calc(25% - 6px); }
-}
+/* HEADER */
+.header{text-align:center;padding:30px 0 16px}
+.header .badge{display:inline-block;background:var(--accent);color:#fff;padding:5px 18px;border-radius:20px;font-size:14px;font-weight:600;margin-bottom:10px;letter-spacing:1px}
+.header h1{font-size:24px;font-weight:800;background:linear-gradient(135deg,#e94560,#f5c518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:8px 0}
+.header .sub{font-size:15px;color:var(--text2)}
+/* STATS */
+.stats-row{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.stat-card{flex:1 1 calc(50% - 5px);min-width:140px;background:var(--card-bg);border-radius:12px;padding:18px 14px;text-align:center;border:1px solid rgba(0,0,0,0.06)}
+.stat-card .num{font-size:32px;font-weight:800;background:linear-gradient(135deg,#e94560,#f5c518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-card .label{font-size:14px;color:var(--text2);margin-top:4px}
+/* SECTION TITLE */
+.section-title{font-size:19px;font-weight:700;margin:28px 0 16px;padding-left:12px;border-left:4px solid var(--accent);display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:22px}
+/* CATEGORY CARDS */
+.cat-grid{display:flex;flex-direction:column;gap:16px}
+.cat-card{background:var(--card-bg);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.06);position:relative;overflow:hidden}
+.cat-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:4px 0 0 4px}
+.cat-card.c-航天::before{background:var(--blue)}.cat-card.c-经济::before{background:var(--orange)}.cat-card.c-农业::before{background:var(--green)}.cat-card.c-民生::before{background:var(--teal)}.cat-card.c-国际::before{background:var(--purple)}.cat-card.c-科技::before{background:var(--accent)}.cat-card.c-文化::before{background:var(--gold)}
+.cat-card .cat-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.cat-card .cat-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.cat-card.c-航天 .cat-icon{background:rgba(52,152,219,0.15)}.cat-card.c-经济 .cat-icon{background:rgba(230,126,34,0.15)}.cat-card.c-农业 .cat-icon{background:rgba(46,204,113,0.15)}.cat-card.c-民生 .cat-icon{background:rgba(26,188,156,0.15)}.cat-card.c-国际 .cat-icon{background:rgba(155,89,182,0.15)}.cat-card.c-科技 .cat-icon{background:rgba(233,69,96,0.15)}.cat-card.c-文化 .cat-icon{background:rgba(245,197,24,0.15)}
+.cat-card .cat-name{font-size:18px;font-weight:700}
+.cat-card .hot-badge{font-size:13px;padding:3px 10px;border-radius:10px;background:rgba(233,69,96,0.12);color:#e94560;font-weight:600;margin-left:auto}
+.news-items{display:flex;flex-direction:column;gap:10px}
+.news-item{background:rgba(0,0,0,0.02);border-radius:8px;padding:14px 16px;font-size:16px;line-height:1.75}
+.news-item .title{font-weight:700;margin-bottom:4px;color:var(--text);font-size:16px}
+.news-item .brief{font-size:14px;color:var(--text2);line-height:1.7}
+.topic-tag{display:inline-block;font-size:13px;padding:2px 10px;border-radius:4px;margin-top:6px;margin-right:6px}
+.tag-热点{background:rgba(233,69,96,0.1);color:#e94560}.tag-数据{background:rgba(52,152,219,0.1);color:#3498db}.tag-趋势{background:rgba(46,204,113,0.1);color:#2ecc71}.tag-深度{background:rgba(155,89,182,0.1);color:#9b59b6}.tag-科普{background:rgba(26,188,156,0.1);color:#1abc9c}
+/* TOPIC BANK */
+.topic-bank{margin:20px 0}
+.topic-item{background:var(--card-bg);border-radius:12px;padding:20px;margin-bottom:14px;border:1px solid rgba(0,0,0,0.06)}
+.topic-item .topic-rank{display:inline-block;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;text-align:center;line-height:30px;font-size:15px;font-weight:700;margin-right:10px;vertical-align:middle}
+.topic-item .topic-title{font-size:18px;font-weight:700;display:inline;vertical-align:middle;line-height:1.6}
+.topic-item .topic-score{float:right;font-size:15px;color:var(--gold);font-weight:700}
+.topic-item .topic-meta{margin:10px 0;display:flex;flex-wrap:wrap;gap:8px}
+.topic-item .topic-angle{background:rgba(0,0,0,0.02);border-radius:8px;padding:14px;margin-top:10px}
+.topic-item .topic-angle .angle-label{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:1px;margin-bottom:6px}
+.topic-item .topic-angle ul{list-style:none;font-size:15px;color:var(--text2);line-height:1.8}
+.topic-item .topic-angle ul li::before{content:'▸ ';color:var(--accent)}
+/* HTML BAR CHART */
+.bar-chart{padding:8px 0}
+.bar-row{display:flex;align-items:center;margin-bottom:14px;gap:10px}
+.bar-label{width:70px;font-size:14px;color:var(--text2);text-align:right;flex-shrink:0}
+.bar-track{flex:1;height:22px;background:rgba(0,0,0,0.04);border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;opacity:0.85;display:flex;align-items:center;padding-left:10px}
+.bar-fill .bar-stars{font-size:12px;color:#fff;font-weight:600}
+.bar-count{font-size:13px;color:var(--text2);width:65px;flex-shrink:0;text-align:left}
+/* FORMAT MATRIX TABLE */
+.fmt-table{width:100%;border-collapse:collapse;font-size:13px}
+.fmt-table th{background:rgba(233,69,96,0.08);color:var(--accent);padding:10px 6px;font-weight:700;text-align:center;font-size:13px}
+.fmt-table td{padding:10px 6px;text-align:center;border-bottom:1px solid rgba(0,0,0,0.04);font-size:14px}
+.fmt-table .fmt-name{text-align:left;font-weight:600;font-size:14px}
+.fmt-table .fmt-yes{color:var(--green);font-weight:700;font-size:16px}
+.fmt-table .fmt-no{color:#ccc;font-size:16px}
+/* PRINCIPLES LIST */
+.principles-list{display:flex;flex-direction:column;gap:12px;font-size:15px}
+.principle-item{display:flex;align-items:flex-start;gap:8px;line-height:1.7}
+.principle-item .p-icon{flex-shrink:0;font-size:16px;width:24px}
+/* TIMELINE */
+.timeline{position:relative;padding:10px 0}
+.timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:rgba(0,0,0,0.1)}
+.tl-item{padding-left:34px;position:relative;margin-bottom:20px}
+.tl-item::before{content:'';position:absolute;left:3px;top:7px;width:16px;height:16px;border-radius:50%;background:var(--accent)}
+.tl-item .tl-date{font-size:14px;color:#e67e22;font-weight:700;margin-bottom:4px}
+.tl-item .tl-text{font-size:15px;color:var(--text2);line-height:1.7}
+/* RISK CHECK */
+.risk-list{display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.8}
+.risk-item{display:flex;align-items:flex-start;gap:10px}
+.risk-ok{color:var(--green);flex-shrink:0;font-size:16px}
+.risk-warn{color:var(--orange);flex-shrink:0;font-size:16px}
+/* FOOTER */
+.footer{text-align:center;padding:30px 0 16px;font-size:14px;color:var(--text2);border-top:1px solid rgba(0,0,0,0.06);margin-top:24px}
+.footer .foot-note{color:#999;margin-top:8px;font-size:13px}
+/* RESPONSIVE */
+@media(min-width:600px){body{max-width:677px;margin:0 auto}.stat-card{flex:1 1 calc(25% - 8px)}}
 </style>
 </head>
 <body>
