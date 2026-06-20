@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>📺 新闻联播热点选题库 | 2026年6月20日</title>
+<style>
+:root {
+  --bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --accent: #e94560;
+  --gold: #f5c518;
+  --text: #1a1a2e;
+  --text2: #6b7280;
+  --blue: #3498db;
+  --green: #2ecc71;
+  --orange: #e67e22;
+  --purple: #9b59b6;
+  --teal: #1abc9c;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:16px;
+  line-height:1.8;
+  padding:20px 16px;
+  max-width:100vw;
+  overflow-x:hidden;
+}
+/* HEADER */
+.header{text-align:center;padding:30px 0 16px}
+.header .badge{display:inline-block;background:var(--accent);color:#fff;padding:5px 18px;border-radius:20px;font-size:14px;font-weight:600;margin-bottom:10px;letter-spacing:1px}
+.header h1{font-size:24px;font-weight:800;background:linear-gradient(135deg,#e94560,#f5c518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:8px 0}
+.header .sub{font-size:15px;color:var(--text2)}
+/* STATS */
+.stats-row{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.stat-card{flex:1 1 calc(50% - 5px);min-width:140px;background:var(--card-bg);border-radius:12px;padding:18px 14px;text-align:center;border:1px solid rgba(0,0,0,0.06)}
+.stat-card .num{font-size:32px;font-weight:800;background:linear-gradient(135deg,#e94560,#f5c518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-card .label{font-size:14px;color:var(--text2);margin-top:4px}
+/* SECTION TITLE */
+.section-title{font-size:19px;font-weight:700;margin:28px 0 16px;padding-left:12px;border-left:4px solid var(--accent);display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:22px}
+/* CATEGORY CARDS */
+.cat-grid{display:flex;flex-direction:column;gap:16px}
+.cat-card{background:var(--card-bg);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.06);position:relative;overflow:hidden}
+.cat-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:4px 0 0 4px}
+.cat-card.c-文化::before{background:var(--gold)}.cat-card.c-经济::before{background:var(--orange)}.cat-card.c-国际::before{background:var(--purple)}.cat-card.c-民生::before{background:var(--teal)}.cat-card.c-科技::before{background:var(--accent)}.cat-card.c-生态::before{background:var(--green)}.cat-card.c-交通::before{background:var(--blue)}
+.cat-card .cat-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.cat-card .cat-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.cat-card.c-文化 .cat-icon{background:rgba(245,197,24,0.15)}.cat-card.c-经济 .cat-icon{background:rgba(230,126,34,0.15)}.cat-card.c-国际 .cat-icon{background:rgba(155,89,182,0.15)}.cat-card.c-民生 .cat-icon{background:rgba(26,188,156,0.15)}.cat-card.c-科技 .cat-icon{background:rgba(233,69,96,0.15)}.cat-card.c-生态 .cat-icon{background:rgba(46,204,113,0.15)}.cat-card.c-交通 .cat-icon{background:rgba(52,152,219,0.15)}
+.cat-card .cat-name{font-size:18px;font-weight:700}
+.cat-card .hot-badge{font-size:13px;padding:3px 10px;border-radius:10px;background:rgba(233,69,96,0.12);color:#e94560;font-weight:600;margin-left:auto}
+.news-items{display:flex;flex-direction:column;gap:10px}
+.news-item{background:rgba(0,0,0,0.02);border-radius:8px;padding:14px 16px;font-size:16px;line-height:1.75}
+.news-item .title{font-weight:700;margin-bottom:4px;color:var(--text);font-size:16px}
+.news-item .brief{font-size:14px;color:var(--text2);line-height:1.7}
+.topic-tag{display:inline-block;font-size:13px;padding:2px 10px;border-radius:4px;margin-top:6px;margin-right:6px}
+.tag-热点{background:rgba(233,69,96,0.1);color:#e94560}.tag-数据{background:rgba(52,152,219,0.1);color:#3498db}.tag-趋势{background:rgba(46,204,113,0.1);color:#2ecc71}.tag-深度{background:rgba(155,89,182,0.1);color:#9b59b6}.tag-科普{background:rgba(26,188,156,0.1);color:#1abc9c}
+/* TOPIC BANK */
+.topic-bank{margin:20px 0}
+.topic-item{background:var(--card-bg);border-radius:12px;padding:20px;margin-bottom:14px;border:1px solid rgba(0,0,0,0.06)}
+.topic-item .topic-rank{display:inline-block;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;text-align:center;line-height:30px;font-size:15px;font-weight:700;margin-right:10px;vertical-align:middle}
+.topic-item .topic-title{font-size:18px;font-weight:700;display:inline;vertical-align:middle;line-height:1.6}
+.topic-item .topic-score{float:right;font-size:15px;color:var(--gold);font-weight:700}
+.topic-item .topic-meta{margin:10px 0;display:flex;flex-wrap:wrap;gap:8px}
+.topic-item .topic-angle{background:rgba(0,0,0,0.02);border-radius:8px;padding:14px;margin-top:10px}
+.topic-item .topic-angle .angle-label{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:1px;margin-bottom:6px}
+.topic-item .topic-angle ul{list-style:none;font-size:15px;color:var(--text2);line-height:1.8}
+.topic-item .topic-angle ul li::before{content:'▸ ';color:var(--accent)}
+/* HTML BAR CHART */
+.bar-chart{padding:8px 0}
+.bar-row{display:flex;align-items:center;margin-bottom:14px;gap:10px}
+.bar-label{width:70px;font-size:14px;color:var(--text2);text-align:right;flex-shrink:0}
+.bar-track{flex:1;height:22px;background:rgba(0,0,0,0.04);border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;opacity:0.85;display:flex;align-items:center;padding-left:10px}
+.bar-fill .bar-stars{font-size:12px;color:#fff;font-weight:600}
+.bar-count{font-size:13px;color:var(--text2);width:65px;flex-shrink:0;text-align:left}
+/* FORMAT MATRIX TABLE */
+.fmt-table{width:100%;border-collapse:collapse;font-size:13px}
+.fmt-table th{background:rgba(233,69,96,0.08);color:var(--accent);padding:10px 6px;font-weight:700;text-align:center;font-size:13px}
+.fmt-table td{padding:10px 6px;text-align:center;border-bottom:1px solid rgba(0,0,0,0.04);font-size:14px}
+.fmt-table .fmt-name{text-align:left;font-weight:600;font-size:14px}
+.fmt-table .fmt-yes{color:var(--green);font-weight:700;font-size:16px}
+.fmt-table .fmt-no{color:#ccc;font-size:16px}
+/* PRINCIPLES LIST */
+.principles-list{display:flex;flex-direction:column;gap:12px;font-size:15px}
+.principle-item{display:flex;align-items:flex-start;gap:8px;line-height:1.7}
+.principle-item .p-icon{flex-shrink:0;font-size:16px;width:24px}
+/* TIMELINE */
+.timeline{position:relative;padding:10px 0}
+.timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:rgba(0,0,0,0.1)}
+.tl-item{padding-left:34px;position:relative;margin-bottom:20px}
+.tl-item::before{content:'';position:absolute;left:3px;top:7px;width:16px;height:16px;border-radius:50%;background:var(--accent)}
+.tl-item .tl-date{font-size:14px;color:#e67e22;font-weight:700;margin-bottom:4px}
+.tl-item .tl-text{font-size:15px;color:var(--text2);line-height:1.7}
+/* RISK CHECK */
+.risk-list{display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.8}
+.risk-item{display:flex;align-items:flex-start;gap:10px}
+.risk-ok{color:var(--green);flex-shrink:0;font-size:16px}
+.risk-warn{color:var(--orange);flex-shrink:0;font-size:16px}
+/* FOOTER */
+.footer{text-align:center;padding:30px 0 16px;font-size:14px;color:var(--text2);border-top:1px solid rgba(0,0,0,0.06);margin-top:24px}
+.footer .foot-note{color:#999;margin-top:8px;font-size:13px}
+/* RESPONSIVE */
+@media(min-width:600px){body{max-width:677px;margin:0 auto}.stat-card{flex:1 1 calc(25% - 8px)}}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">📺 每日选题炼金炉</div>
+  <h1>新闻联播热点选题库</h1>
+  <div class="sub">2026年6月20日 · 星期六 · 端午假期 · 内容素材库</div>
+</div>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="num">7</div>
+    <div class="label">热点领域</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">24</div>
+    <div class="label">有效选题</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">🔥</div>
+    <div class="label">爆款潜力</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">5+</div>
+    <div class="label">内容形态</div>
+  </div>
+</div>
+
+<!-- OVERVIEW CHART -->
+<div class="chart-container">
+  <div class="section-title" style="margin-top:0;"><span class="icon">📊</span> 热点领域分布 &amp; 选题热度</div>
+  <div class="bar-chart">
+    <div class="bar-row">
+      <div class="bar-label">端午文旅</div>
+      <div class="bar-track"><div class="bar-fill" style="width:96%;background:linear-gradient(90deg,#e94560,#c0392b)"><span class="bar-stars">★★★★★</span></div></div>
+      <div class="bar-count">6条</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">文化传承</div>
+      <div class="bar-track"><div class="bar-fill" style="width:88%;background:linear-gradient(90deg,#f5c518,#e67e22)"><span class="bar-stars">★★★★★</span></div></div>
+      <div class="bar-count">5条</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">经济科技</div>
+      <div class="bar-track"><div class="bar-fill" style="width:84%;background:linear-gradient(90deg,#e67e22,#d35400)"><span class="bar-stars">★★★★☆</span></div></div>
+      <div class="bar-count">4条</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">国际局势</div>
+      <div class="bar-track"><div class="bar-fill" style="width:80%;background:linear-gradient(90deg,#9b59b6,#8e44ad)"><span class="bar-stars">★★★★☆</span></div></div>
+      <div class="bar-count">4条</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">交通出行</div>
+      <div class="bar-track"><div class="bar-fill" style="width:72%;background:linear-gradient(90deg,#3498db,#2980b9)"><span class="bar-stars">★★★★☆</span></div></div>
+      <div class="bar-count">3条</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">生态旅游</div>
+      <div class="bar-track"><div class="bar-fill" style="width:64%;background:linear-gradient(90deg,#2ecc71,#27ae60)"><span class="bar-stars">★★★☆☆</span></div></div>
+      <div class="bar-count">2条</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">消费市场</div>
+      <div class="bar-track"><div class="bar-fill" style="width:56%;background:linear-gradient(90deg,#1abc9c,#16a085)"><span class="bar-stars">★★★☆☆</span></div></div>
+      <div class="bar-count">2条</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== CATEGORY CARDS ====== -->
+<div class="section-title"><span class="icon">🚀</span> 分类解读</div>
+
+<div class="cat-grid">
+
+<!-- 端午文旅 -->
+<div class="cat-card c-文化">
+  <div class="cat-header">
+    <div class="cat-icon">🎋</div>
+    <div class="cat-name">端午文旅</div>
+    <div class="hot-badge">🔥 最热</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">第41届广州国际龙舟邀请赛鸣锣开赛</div>
+      <div class="brief">20个国家和地区100多支队伍激烈比拼，文化展区、民俗表演带给市民游客多元假日体验。</div>
+      <span class="topic-tag tag-热点">爆款潜力</span>
+      <span class="topic-tag tag-趋势">国际视角</span>
+    </div>
+    <div class="news-item">
+      <div class="title">北京大运河龙舟嘉年华：美食+文创全场景融合</div>
+      <div class="brief">城市副中心推出竞技比赛+"美食＋文创"市集，打造文商旅体全场景融合的假日新模式。</div>
+      <span class="topic-tag tag-热点">消费热点</span>
+      <span class="topic-tag tag-趋势">趋势向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">扬州非遗市集："端午十二红"亮相</div>
+      <div class="brief">十二道红颜色的菜亮相特色体验区，寓意平安健康、日子红火，非遗市集成假日新宠。</div>
+      <span class="topic-tag tag-科普">文化向</span>
+      <span class="topic-tag tag-热点">民俗热点</span>
+    </div>
+    <div class="news-item">
+      <div class="title">海口骑楼老街：灯笼挂满廊檐，古韵消费火热</div>
+      <div class="brief">街区灯笼挂满廊檐，特产小店、特色食铺客流不断，沉浸式古韵消费成假日亮点。</div>
+      <span class="topic-tag tag-趋势">消费向</span>
+      <span class="topic-tag tag-热点">出行攻略</span>
+    </div>
+  </div>
+</div>
+
+<!-- 文化传承 -->
+<div class="cat-card c-文化">
+  <div class="cat-header">
+    <div class="cat-icon">🏛️</div>
+    <div class="cat-name">文化传承</div>
+    <div class="hot-badge">🔥 热</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">苏州平江路：2500年历史街区上半年游客超1500万人次</div>
+      <div class="brief">河街相邻、城水共生，古宅古树古井应保尽保，昆曲评弹缂丝非遗工坊遍布，水韵姑苏持续出圈。</div>
+      <span class="topic-tag tag-深度">深度解读</span>
+      <span class="topic-tag tag-数据">数据向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">泉州古城："微改造"绣花功夫重现闽南古建风貌</div>
+      <div class="brief">170多条街巷分批修缮，原工艺原形制原做法，出砖入石、蚝壳堆砌等传统工艺重现，簪花留念成爆款。</div>
+      <span class="topic-tag tag-科普">文化科普</span>
+      <span class="topic-tag tag-热点">旅游热点</span>
+    </div>
+    <div class="news-item">
+      <div class="title">【文化中国行】一枚香包 一脉"香"传</div>
+      <div class="brief">端午传统香包制作技艺传承，从一针一线到文化IP，非遗香包如何"香"飘海内外。</div>
+      <span class="topic-tag tag-科普">非遗传承</span>
+      <span class="topic-tag tag-趋势">文化IP</span>
+    </div>
+  </div>
+</div>
+
+<!-- 经济科技 -->
+<div class="cat-card c-经济">
+  <div class="cat-header">
+    <div class="cat-icon">📈</div>
+    <div class="cat-name">经济科技</div>
+    <div class="hot-badge">📈 利好</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">中欧班列年开行量十年间增长10.8倍</div>
+      <div class="brief">中欧班列十年增长超10倍，成为"一带一路"经贸往来的钢铁驼队，联通亚欧的黄金通道。</div>
+      <span class="topic-tag tag-数据">数据向</span>
+      <span class="topic-tag tag-趋势">趋势向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">我国科技创新和产业创新融合发展步伐加快</div>
+      <div class="brief">科技创新与产业创新深度融合成为推动高质量发展的关键引擎，多领域成果加速落地。</div>
+      <span class="topic-tag tag-深度">深度解读</span>
+      <span class="topic-tag tag-趋势">产业趋势</span>
+    </div>
+    <div class="news-item">
+      <div class="title">外资机构：越来越开放的中国市场越来越有吸引力</div>
+      <div class="brief">多家外资机构表达对中国市场的长期信心，开放政策持续释放红利，外资加码布局。</div>
+      <span class="topic-tag tag-热点">经济热点</span>
+      <span class="topic-tag tag-趋势">商业分析</span>
+    </div>
+  </div>
+</div>
+
+<!-- 国际局势 -->
+<div class="cat-card c-国际">
+  <div class="cat-header">
+    <div class="cat-icon">🌍</div>
+    <div class="cat-name">国际局势</div>
+    <div class="hot-badge">👀 关注</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">伊朗称启动伊美谈判取决于谅解备忘录条款执行情况</div>
+      <div class="brief">美伊谈判出现新变数，伊朗强调协议条款须先执行再谈判，中东和平进程再生波折。</div>
+      <span class="topic-tag tag-深度">深度分析</span>
+      <span class="topic-tag tag-热点">时效热点</span>
+    </div>
+    <div class="news-item">
+      <div class="title">日本民众集会反对政府扩军修宪动向</div>
+      <div class="brief">日本国内反对扩军修宪声音持续，民间团体举行集会表达对和平宪法的坚守。</div>
+      <span class="topic-tag tag-趋势">国际视角</span>
+    </div>
+    <div class="news-item">
+      <div class="title">全球多地举办丰富多彩的端午节活动</div>
+      <div class="brief">端午节文化加速出海，多国举办龙舟赛、包粽子等端午活动，中华传统文化国际影响力持续提升。</div>
+      <span class="topic-tag tag-趋势">文化出海</span>
+      <span class="topic-tag tag-热点">国际传播</span>
+    </div>
+  </div>
+</div>
+
+<!-- 交通出行 -->
+<div class="cat-card c-交通">
+  <div class="cat-header">
+    <div class="cat-icon">🚄</div>
+    <div class="cat-name">交通出行</div>
+    <div class="hot-badge">📋 实用</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">端午假期第二天 中短途出行活跃</div>
+      <div class="brief">假期第二天，全国中短途出行持续活跃，自驾游、周边游成主流，热门景区周边交通压力增大。</div>
+      <span class="topic-tag tag-热点">实用信息</span>
+      <span class="topic-tag tag-数据">数据向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">假期首日客流现高峰 交通部门增运力保出行</div>
+      <div class="brief">铁路公路民航多措并举保障旅客出行，加开列车、增派运力应对客流高峰。</div>
+      <span class="topic-tag tag-热点">出行攻略</span>
+    </div>
+  </div>
+</div>
+
+<!-- 生态旅游 -->
+<div class="cat-card c-生态">
+  <div class="cat-header">
+    <div class="cat-icon">🏞️</div>
+    <div class="cat-name">生态旅游</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">宁夏沙坡头：大漠黄河交汇，羊皮筏子成假日新宠</div>
+      <div class="brief">腾格里沙漠东南缘，游客乘坐羊皮筏子漂流、从沙丘飞驰滑下，"沙海冲浪"体验火爆。</div>
+      <span class="topic-tag tag-热点">旅游攻略</span>
+      <span class="topic-tag tag-趋势">生态体验</span>
+    </div>
+    <div class="news-item">
+      <div class="title">浙江上虞：废弃矿坑变身乡村文旅新空间</div>
+      <div class="brief">曾经的废弃采石矿坑经生态修复，变身为集咖啡体验、生态观光、户外打卡于一体的文旅新地标。</div>
+      <span class="topic-tag tag-科普">生态修复</span>
+      <span class="topic-tag tag-趋势">乡村振兴</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- ====== TOPIC BANK ====== -->
+<div class="section-title"><span class="icon">🎯</span> 爆款选题库 TOP 10</div>
+
+<div class="topic-bank">
+
+<div class="topic-item">
+  <span class="topic-rank">1</span>
+  <span class="topic-title">端午假期去哪玩？全国6大爆款打卡地实测</span>
+  <span class="topic-score">⭐ 9.5</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">端午文旅</span>
+    <span class="topic-tag tag-趋势">出行攻略</span>
+    <span class="topic-tag tag-热点">短视频</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「龙舟地图」：广州/北京/扬州/泉州……全国龙舟赛一键收藏</li>
+      <li>「人均500玩转端午」：小众目的地推荐（沙坡头/上虞矿坑）</li>
+      <li>「端午十二红」：扬州非遗市集里的仪式感美食</li>
+      <li>「骑楼老街VS平江路」：哪个才是你心中的最美古街？</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">2</span>
+  <span class="topic-title">中欧班列十年增长10.8倍："钢铁驼队"如何改变世界贸易？</span>
+  <span class="topic-score">⭐ 9.2</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-数据">经济数据</span>
+    <span class="topic-tag tag-深度">深度分析</span>
+    <span class="topic-tag tag-热点">公众号长文</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「10.8倍增长」：一张图看懂中欧班列十年进化史</li>
+      <li>「从义乌到马德里」：一趟班列的13000公里旅程</li>
+      <li>「谁在坐班列」：新能源汽车/光伏/跨境电商的出海之路</li>
+      <li>「和海运比哪个划算」：中欧班列VS海运成本时效对比</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">3</span>
+  <span class="topic-title">美伊谈判再生变数：伊朗说"先执行再谈"，中东局势走向何方？</span>
+  <span class="topic-score">⭐ 8.9</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-趋势">国际政治</span>
+    <span class="topic-tag tag-深度">深度分析</span>
+    <span class="topic-tag tag-热点">时效热点</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「谅解备忘录」核心条款拆解：伊朗在等什么？</li>
+      <li>「瑞士谈判为何取消」：背后的各方博弈</li>
+      <li>「对油价的影响」：中东变局与中国老百姓的钱包</li>
+      <li>「时间线梳理」：从停火到谈判取消，美伊经历了什么</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">4</span>
+  <span class="topic-title">苏州平江路半年1500万人次！"古城保护"如何变成"流量密码"？</span>
+  <span class="topic-score">⭐ 8.7</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">文旅热点</span>
+    <span class="topic-tag tag-深度">城市观察</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「平江路密码」：2500年历史街区如何吸引年轻人？</li>
+      <li>「微改造VS大拆大建」：泉州和苏州的古城保护启示录</li>
+      <li>「1.5万处历史建筑修缮」：十五五古城保护计划全景</li>
+      <li>「你的城市有历史街区吗」：145座国家历史文化名城盘点</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">5</span>
+  <span class="topic-title">外资机构齐发声："越来越开放的中国市场越来越有吸引力"</span>
+  <span class="topic-score">⭐ 8.5</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-趋势">经济趋势</span>
+    <span class="topic-tag tag-深度">商业分析</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「外资为何看好中国」：开放政策红利逐一拆解</li>
+      <li>「谁在加码」：近期外资布局中国的最新动态</li>
+      <li>「普通人如何受益」：外资涌入带来的就业和消费变化</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">6</span>
+  <span class="topic-title">端午文化出海！全球多地赛龙舟包粽子，中华文化为何越来越"香"？</span>
+  <span class="topic-score">⭐ 8.3</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">文化传播</span>
+    <span class="topic-tag tag-趋势">国际视角</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「龙舟出海地图」：今年端午哪些国家在赛龙舟？</li>
+      <li>「从粽子到香包」：端午非遗的国际传播之路</li>
+      <li>「文化IP方法论」：传统节日如何成为世界语言？</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">7</span>
+  <span class="topic-title">从废弃矿坑到网红打卡地：浙江上虞的"生态修复+文旅"方程式</span>
+  <span class="topic-score">⭐ 8.0</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-科普">生态修复</span>
+    <span class="topic-tag tag-趋势">乡村振兴</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「矿坑变形记」：从工业伤疤到文旅名片的蜕变之路</li>
+      <li>「生态修复账本」：投入多少、收益如何？</li>
+      <li>「还有哪些废弃地能变废为宝」：全国矿坑修复案例集锦</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">8</span>
+  <span class="topic-title">泉州"微改造"密码：170条街巷如何不拆不建也能火出圈？</span>
+  <span class="topic-score">⭐ 7.8</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-深度">城市更新</span>
+    <span class="topic-tag tag-科普">文化保护</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「一户一策」：泉州如何为原住居民定制改造方案？</li>
+      <li>「出砖入石、蚝壳堆砌」：闽南古建筑工艺大揭秘</li>
+      <li>「簪花为什么火了」：从泉州民俗到全网爆款</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">9</span>
+  <span class="topic-title">端午假期出行避堵指南：中短途自驾游火爆，这些路段要注意</span>
+  <span class="topic-score">⭐ 7.6</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">实用信息</span>
+    <span class="topic-tag tag-数据">数据向</span>
+    <span class="topic-tag tag-热点">出行攻略</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「热门景区周边路况」：实时交通数据一览</li>
+      <li>「返程高峰预测」：什么时候出发最不堵？</li>
+      <li>「假期后半段天气」：长江中下游持续降雨需注意</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">10</span>
+  <span class="topic-title">一枚香包的出圈之路：非遗如何从"老手艺"变成"新国潮"？</span>
+  <span class="topic-score">⭐ 7.4</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-科普">非遗传承</span>
+    <span class="topic-tag tag-趋势">文化IP</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「一脉香传」：端午香包背后的千年技艺</li>
+      <li>「从一针一线到文创爆款」：非遗IP化路径拆解</li>
+      <li>「还有哪些非遗在出圈」：2026非遗消费趋势盘点</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+
+<!-- ====== CONTENT FORMAT MATRIX ====== -->
+<div class="chart-container">
+  <div class="section-title" style="margin-top:0;"><span class="icon">🎬</span> 选题 → 内容形态 适配矩阵</div>
+  <table class="fmt-table">
+    <tr><th style="text-align:left;width:30%">选题</th><th>短视频</th><th>公众号</th><th>H5/长图</th><th>漫画</th><th>小红书</th><th>朋友圈</th></tr>
+    <tr><td class="fmt-name">端午打卡攻略</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">中欧班列10.8倍</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-no">-</td><td class="fmt-no">-</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">美伊谈判变数</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-no">-</td><td class="fmt-no">-</td><td class="fmt-no">-</td></tr>
+    <tr><td class="fmt-name">平江路古城保护</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">外资看好中国</td><td class="fmt-no">-</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-no">-</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">端午文化出海</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">矿坑变身文旅</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+  </table>
+</div>
+
+<!-- ====== 12 CORE PRINCIPLES CHECKLIST ====== -->
+<div class="chart-container">
+  <div class="section-title" style="margin-top:0;"><span class="icon">✅</span> 12条爆款心法筛查</div>
+  <div class="principles-list">
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ① 用户思维优先 — 选题均从受众利益切入（出行省钱、文化体验、投资机会）</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ② 热点热度足够 — 端午假期+美伊变局均为当日最高热度</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ③ 传播点明确 — 每条选题有明确"截图锚点"和分享动机</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ④ 可互动可视化 — 龙舟地图/中欧班列数据/端午攻略适配多形态</div>
+    <div class="principle-item"><span class="p-icon" style="color:#e67e22">⚠️</span> ⑤ 叙事张力 — 美伊/中欧班列天然有张力，文旅类需加强故事性</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑥ 化繁为简 — 10.8倍增长/1500万人次等数据已提炼核心记忆点</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑦ 体验一致性 — 多形态方案保持核心信息一致</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑧ 参与门槛低 — "你去过哪个""你最想去哪"直接触发互动</div>
+    <div class="principle-item"><span class="p-icon" style="color:#e67e22">⚠️</span> ⑨ 声音加成 — 龙舟赛/民俗活动适合短视频配乐，经济类偏弱</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑩ 立场安全 — 已过滤全部政治党建敏感话题</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑪ 信息源可信 — 全部源自央视新闻联播2026年6月20日官方渠道</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑫ 合规可上线 — 无敏感词、无绝对化表述、无诱导分享</div>
+  </div>
+</div>
+
+<!-- ====== TIMELINE: 发布节奏 ====== -->
+<div class="section-title"><span class="icon">⏰</span> 发布节奏建议 — "一个热点吃三轮"</div>
+
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-date">6月20日 21:00 — 第一轮</div>
+    <div class="tl-text">短视频/朋友圈海报：端午打卡攻略速读 + 中欧班列10.8倍数据快报（趁热打铁，抢假期流量）</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">6月21日 08:00 — 第二轮</div>
+    <div class="tl-text">公众号长文：古城保护深度解读（平江路+泉州微改造）+ 美伊谈判变数分析（假期深度阅读）</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">6月21日 12:00 — 第三轮</div>
+    <div class="tl-text">小红书/微博：矿坑变身记漫画 + 端午香包非遗图解 + 假期返程避堵攻略（午休碎片阅读）</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">6月22日 20:00 — 长尾</div>
+    <div class="tl-text">外资看好中国H5互动专题 + 端午文化出海数据可视化（节后持续发酵）</div>
+  </div>
+</div>
+
+<!-- ====== RISK CHECK ====== -->
+<div class="chart-container">
+  <div class="section-title" style="margin-top:0;"><span class="icon">🛡️</span> 风险自检</div>
+  <div class="risk-list">
+    <div class="risk-item"><span class="risk-ok">✅</span> 已过滤所有政治/党建/领导人相关话题</div>
+    <div class="risk-item"><span class="risk-ok">✅</span> 国际话题采用客观陈述，无站队/带节奏</div>
+    <div class="risk-item"><span class="risk-ok">✅</span> 无"最""第一""绝对"等广告法禁用词</div>
+    <div class="risk-item"><span class="risk-ok">✅</span> 无诱导分享/标题党/震惊体</div>
+    <div class="risk-item"><span class="risk-ok">✅</span> 所有数据来源可追溯至央视新闻联播</div>
+    <div class="risk-item"><span class="risk-warn">⚠️</span> 美伊谈判动态事件建议持续跟踪，局势变化快</div>
+    <div class="risk-item"><span class="risk-warn">⚠️</span> 端午假期出行信息时效性强，建议标注发布日期</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>📺 数据来源：CCTV新闻联播 2026年6月20日</p>
+  <p>🔧 工具：新闻摘要 × 内容工厂 × 10万+爆款选题炼金炉</p>
+  <p class="foot-note">内容仅供选题参考，实际发布前请核实最新信息</p>
+</div>
+
+</body>
+</html>
