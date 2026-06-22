@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>📺 新闻联播热点选题库 | 2026年6月22日</title>
+<style>
+:root {
+  --bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --accent: #e94560;
+  --gold: #f5c518;
+  --text: #1a1a2e;
+  --text2: #6b7280;
+  --blue: #3498db;
+  --green: #2ecc71;
+  --orange: #e67e22;
+  --purple: #9b59b6;
+  --teal: #1abc9c;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:16px;
+  line-height:1.8;
+  padding:20px 16px;
+  max-width:100vw;
+  overflow-x:hidden;
+}
+/* HEADER */
+.header{text-align:center;padding:30px 0 16px}
+.header .badge{display:inline-block;background:var(--accent);color:#fff;padding:5px 18px;border-radius:20px;font-size:14px;font-weight:600;margin-bottom:10px;letter-spacing:1px;cursor:pointer}
+.header h1{font-size:24px;font-weight:800;background:linear-gradient(135deg,#e94560,#f5c518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:8px 0}
+.header .sub{font-size:15px;color:var(--text2)}
+/* STATS */
+.stats-row{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.stat-card{flex:1 1 calc(50% - 5px);min-width:140px;background:var(--card-bg);border-radius:12px;padding:18px 14px;text-align:center;border:1px solid rgba(0,0,0,0.06)}
+.stat-card .num{font-size:32px;font-weight:800;background:linear-gradient(135deg,#e94560,#f5c518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-card .label{font-size:14px;color:var(--text2);margin-top:4px}
+/* SECTION TITLE */
+.section-title{font-size:19px;font-weight:700;margin:28px 0 16px;padding-left:12px;border-left:4px solid var(--accent);display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:22px}
+/* CATEGORY CARDS */
+.cat-grid{display:flex;flex-direction:column;gap:16px}
+.cat-card{background:var(--card-bg);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.06);position:relative;overflow:hidden}
+.cat-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:4px 0 0 4px}
+.cat-card.c-消费::before{background:var(--orange)}.cat-card.c-科技::before{background:var(--accent)}.cat-card.c-国际::before{background:var(--purple)}.cat-card.c-民生::before{background:var(--teal)}.cat-card.c-军事::before{background:var(--blue)}.cat-card.c-生态::before{background:var(--green)}.cat-card.c-文化::before{background:var(--gold)}
+.cat-card .cat-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.cat-card .cat-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.cat-card.c-消费 .cat-icon{background:rgba(230,126,34,0.15)}.cat-card.c-科技 .cat-icon{background:rgba(233,69,96,0.15)}.cat-card.c-国际 .cat-icon{background:rgba(155,89,182,0.15)}.cat-card.c-民生 .cat-icon{background:rgba(26,188,156,0.15)}.cat-card.c-军事 .cat-icon{background:rgba(52,152,219,0.15)}.cat-card.c-生态 .cat-icon{background:rgba(46,204,113,0.15)}.cat-card.c-文化 .cat-icon{background:rgba(245,197,24,0.15)}
+.cat-card .cat-name{font-size:18px;font-weight:700}
+.cat-card .hot-badge{font-size:13px;padding:3px 10px;border-radius:10px;background:rgba(233,69,96,0.12);color:#e94560;font-weight:600;margin-left:auto}
+.news-items{display:flex;flex-direction:column;gap:10px}
+.news-item{background:rgba(0,0,0,0.02);border-radius:8px;padding:14px 16px;font-size:16px;line-height:1.75}
+.news-item .title{font-weight:700;margin-bottom:4px;color:var(--text);font-size:16px}
+.news-item .brief{font-size:14px;color:var(--text2);line-height:1.7}
+.topic-tag{display:inline-block;font-size:13px;padding:2px 10px;border-radius:4px;margin-top:6px;margin-right:6px}
+.tag-热点{background:rgba(233,69,96,0.1);color:#e94560}.tag-数据{background:rgba(52,152,219,0.1);color:#3498db}.tag-趋势{background:rgba(46,204,113,0.1);color:#2ecc71}.tag-深度{background:rgba(155,89,182,0.1);color:#9b59b6}.tag-科普{background:rgba(26,188,156,0.1);color:#1abc9c}
+/* TOPIC BANK */
+.topic-bank{margin:20px 0}
+.topic-item{background:var(--card-bg);border-radius:12px;padding:20px;margin-bottom:14px;border:1px solid rgba(0,0,0,0.06)}
+.topic-item .topic-rank{display:inline-block;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;text-align:center;line-height:30px;font-size:15px;font-weight:700;margin-right:10px;vertical-align:middle}
+.topic-item .topic-title{font-size:18px;font-weight:700;display:inline;vertical-align:middle;line-height:1.6}
+.topic-item .topic-score{float:right;font-size:15px;color:var(--gold);font-weight:700}
+.topic-item .topic-meta{margin:10px 0;display:flex;flex-wrap:wrap;gap:8px}
+.topic-item .topic-angle{background:rgba(0,0,0,0.02);border-radius:8px;padding:14px;margin-top:10px}
+.topic-item .topic-angle .angle-label{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:1px;margin-bottom:6px}
+.topic-item .topic-angle ul{list-style:none;font-size:15px;color:var(--text2);line-height:1.8}
+.topic-item .topic-angle ul li::before{content:'▸ ';color:var(--accent)}
+/* HTML BAR CHART */
+.bar-chart{padding:8px 0}
+.bar-row{display:flex;align-items:center;margin-bottom:14px;gap:10px}
+.bar-label{width:70px;font-size:14px;color:var(--text2);text-align:right;flex-shrink:0}
+.bar-track{flex:1;height:22px;background:rgba(0,0,0,0.04);border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;opacity:0.85;display:flex;align-items:center;padding-left:10px}
+.bar-fill .bar-stars{font-size:12px;color:#fff;font-weight:600}
+.bar-count{font-size:13px;color:var(--text2);width:65px;flex-shrink:0;text-align:left}
+/* FORMAT MATRIX TABLE */
+.fmt-table{width:100%;border-collapse:collapse;font-size:13px}
+.fmt-table th{background:rgba(233,69,96,0.08);color:var(--accent);padding:10px 6px;font-weight:700;text-align:center;font-size:13px}
+.fmt-table td{padding:10px 6px;text-align:center;border-bottom:1px solid rgba(0,0,0,0.04);font-size:14px}
+.fmt-table .fmt-name{text-align:left;font-weight:600;font-size:14px}
+.fmt-table .fmt-yes{color:var(--green);font-weight:700;font-size:16px}
+.fmt-table .fmt-no{color:#ccc;font-size:16px}
+/* PRINCIPLES LIST */
+.principles-list{display:flex;flex-direction:column;gap:12px;font-size:15px}
+.principle-item{display:flex;align-items:flex-start;gap:8px;line-height:1.7}
+.principle-item .p-icon{flex-shrink:0;font-size:16px;width:24px}
+/* TIMELINE */
+.timeline{position:relative;padding:10px 0}
+.timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:rgba(0,0,0,0.1)}
+.tl-item{padding-left:34px;position:relative;margin-bottom:20px}
+.tl-item::before{content:'';position:absolute;left:3px;top:7px;width:16px;height:16px;border-radius:50%;background:var(--accent)}
+.tl-item .tl-date{font-size:14px;color:#e67e22;font-weight:700;margin-bottom:4px}
+.tl-item .tl-text{font-size:15px;color:var(--text2);line-height:1.7}
+/* RISK CHECK */
+.risk-list{display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.8}
+.risk-item{display:flex;align-items:flex-start;gap:10px}
+.risk-ok{color:var(--green);flex-shrink:0;font-size:16px}
+.risk-warn{color:var(--orange);flex-shrink:0;font-size:16px}
+/* FOOTER */
+.footer{text-align:center;padding:30px 0 16px;font-size:14px;color:var(--text2);border-top:1px solid rgba(0,0,0,0.06);margin-top:24px}
+.footer .foot-note{color:#999;margin-top:8px;font-size:13px}
+/* RESPONSIVE */
+@media(min-width:600px){body{max-width:677px;margin:0 auto}.stat-card{flex:1 1 calc(25% - 8px)}}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+  <a href="https://okai888.github.io/news-daily-20260617/" style="text-decoration:none;"><div class="badge">📺 每日选题炼金炉</div></a>
+  <h1>新闻联播热点选题库</h1>
+  <div class="sub">2026年6月22日 · 星期一 · 夏至后·链博会开幕 · 内容素材库</div>
+</div>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="num">7</div>
+    <div class="label">热点领域</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">22</div>
+    <div class="label">有效选题</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">🔥</div>
+    <div class="label">爆款潜力</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">5+</div>
+    <div class="label">内容形态</div>
+  </div>
+</div>
+
+<!-- OVERVIEW CHART -->
+<div class="chart-container">
+  <div class="section-title" style="margin-top:0;"><span class="icon">📊</span> 热点领域分布 &amp; 选题热度</div>
+  <div class="bar-chart">
+    <div class="bar-row">
+      <div class="bar-label">经济消费</div>
+      <div class="bar-track"><div class="bar-fill" style="width:96%;background:linear-gradient(90deg,#e67e22,#d35400)"><span class="bar-stars">★★★★★</span></div></div>
+      <div class="bar-count">6条</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">科技产业</div>
+      <div class="bar-track"><div class="bar-fill" style="width:88%;background:linear-gradient(90deg,#e94560,#c0392b)"><span class="bar-stars">★★★★★</span></div></div>
+      <div class="bar-count">5条</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">国际要闻</div>
+      <div class="bar-track"><div class="bar-fill" style="width:84%;background:linear-gradient(90deg,#9b59b6,#8e44ad)"><span class="bar-stars">★★★★☆</span></div></div>
+      <div class="bar-count">4条</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">军事国防</div>
+      <div class="bar-track"><div class="bar-fill" style="width:78%;background:linear-gradient(90deg,#3498db,#2980b9)"><span class="bar-stars">★★★★☆</span></div></div>
+      <div class="bar-count">2条</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">社会民生</div>
+      <div class="bar-track"><div class="bar-fill" style="width:72%;background:linear-gradient(90deg,#1abc9c,#16a085)"><span class="bar-stars">★★★☆☆</span></div></div>
+      <div class="bar-count">3条</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">生态环保</div>
+      <div class="bar-track"><div class="bar-fill" style="width:60%;background:linear-gradient(90deg,#2ecc71,#27ae60)"><span class="bar-stars">★★★☆☆</span></div></div>
+      <div class="bar-count">2条</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">文化教育</div>
+      <div class="bar-track"><div class="bar-fill" style="width:52%;background:linear-gradient(90deg,#f5c518,#e67e22)"><span class="bar-stars">★★☆☆☆</span></div></div>
+      <div class="bar-count">2条</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== CATEGORY CARDS ====== -->
+<div class="section-title"><span class="icon">🚀</span> 分类解读</div>
+
+<div class="cat-grid">
+
+<!-- 经济消费 -->
+<div class="cat-card c-消费">
+  <div class="cat-header">
+    <div class="cat-icon">💰</div>
+    <div class="cat-name">经济消费</div>
+    <div class="hot-badge">🔥 最热</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">以旧换新撬动万亿消费：1.36亿人次受益，汽车家电双轮驱动</div>
+      <div class="brief">商务部大数据：截至6月20日，消费品以旧换新惠及1.36亿人次，带动销售额超1万亿元。其中汽车换新342.8万台（5552.4亿），家电数码换新1.33亿台（4516.3亿）。端午假期全国消费市场平稳，农村消费升级明显。</div>
+      <span class="topic-tag tag-热点">爆款潜力</span>
+      <span class="topic-tag tag-数据">数据向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">各地创新消费场景激发新活力，1-5月铁路货运16.41亿吨</div>
+      <div class="brief">端午假期消费稳中提质，沉浸式体验、夜间经济、数字消费等新业态释放活力。1-5月国家铁路累计发送货物16.41亿吨，物流畅通为消费护航。</div>
+      <span class="topic-tag tag-趋势">消费趋势</span>
+      <span class="topic-tag tag-数据">物流数据</span>
+    </div>
+    <div class="news-item">
+      <div class="title">15条举措推动利用外资固稳促优：服务业、金融、医药扩大开放</div>
+      <div class="brief">商务部等三部门联合印发《利用外资固稳促优行动方案》，从扩大市场准入、提升便利度等五方面提出15条举措。聚焦服务业、金融业、医药产业扩大准入，支持外资机构利用境内金融市场。</div>
+      <span class="topic-tag tag-深度">政策解读</span>
+      <span class="topic-tag tag-趋势">外资风向</span>
+    </div>
+  </div>
+</div>
+
+<!-- 科技产业 -->
+<div class="cat-card c-科技">
+  <div class="cat-header">
+    <div class="cat-icon">🔬</div>
+    <div class="cat-name">科技产业</div>
+    <div class="hot-badge">📋 利好</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">第四届链博会今日开幕：首设AI专区，676家中外企业参展</div>
+      <div class="brief">链博会6月22日北京开幕，设数智科技、先进制造、绿色农业、健康生活、智能汽车、清洁能源"6链1展区"。首次设置人工智能专区，苹果携"果链"展示AI制造，科大讯飞带来10款AI产品。</div>
+      <span class="topic-tag tag-热点">展会热点</span>
+      <span class="topic-tag tag-趋势">AI趋势</span>
+    </div>
+    <div class="news-item">
+      <div class="title">全国夏播进入高峰：科技赋能提质增效，智慧气象护航三夏</div>
+      <div class="brief">农业农村部最新农情调度：全国夏播粮食进度过七成。新技术、新装备赋能夏种，智慧气象精准服务三夏生产。中央财政下达防灾救灾资金2.19亿元。</div>
+      <span class="topic-tag tag-科普">智慧农业</span>
+      <span class="topic-tag tag-数据">夏播数据</span>
+    </div>
+    <div class="news-item">
+      <div class="title">2026夏季达沃斯明日大连开幕：1700+嘉宾创规模新高</div>
+      <div class="brief">第十七届夏季达沃斯论坛6月23-25日在大连举办，主题"规模化创新"，参会嘉宾来自90多个国家和地区，总注册人数突破1700人，规模创下新高。</div>
+      <span class="topic-tag tag-热点">经济前瞻</span>
+      <span class="topic-tag tag-趋势">全球创新</span>
+    </div>
+  </div>
+</div>
+
+<!-- 国际要闻 -->
+<div class="cat-card c-国际">
+  <div class="cat-header">
+    <div class="cat-icon">🌍</div>
+    <div class="cat-name">国际要闻</div>
+    <div class="hot-badge">👀 关注</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">英国首相斯塔默宣布辞职：地方选举惨败与党内逼宫</div>
+      <div class="brief">当地时间6月22日，英国首相斯塔默在唐宁街10号宣布辞去工党党首职务。此前工党在地方选举中惨败，党内集体逼宫。这是英国十年来的又一次首相更迭，在继任者产生前继续担任看守首相。</div>
+      <span class="topic-tag tag-热点">时效热点</span>
+      <span class="topic-tag tag-深度">深度分析</span>
+    </div>
+    <div class="news-item">
+      <div class="title">伊美比尔根山首轮谈判结束，建立技术性谈判机制</div>
+      <div class="brief">伊美首轮谈判结束，建立技术性谈判机制。以方称将依自身需要在黎南部长期驻留，黎真主党称侵略者必须撤离。中东局势持续博弈。</div>
+      <span class="topic-tag tag-深度">国际视角</span>
+      <span class="topic-tag tag-热点">中东棋局</span>
+    </div>
+    <div class="news-item">
+      <div class="title">俄称打击乌物流中心，美芝加哥枪击8死，欧洲多国高温警报</div>
+      <div class="brief">俄乌持续交火。芝加哥发生数十起枪击至少8人死亡。欧洲多国发布高温警报，气候危机加速显现。</div>
+      <span class="topic-tag tag-趋势">国际动态</span>
+      <span class="topic-tag tag-热点">气候安全</span>
+    </div>
+  </div>
+</div>
+
+<!-- 军事国防 -->
+<div class="cat-card c-军事">
+  <div class="cat-header">
+    <div class="cat-icon">⚓</div>
+    <div class="cat-name">军事国防</div>
+    <div class="hot-badge">🔥 重磅</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">辽宁舰编队完成40余天远海实战化训练，安全返回青岛母港</div>
+      <div class="brief">6月22日，海军辽宁舰编队圆满完成远海实战化训练返回青岛。40余天中赴南海、西太平洋等海空域，开展岸海联合体系对抗、舰载机战术飞行、编队搜救等课目训练，专业稳妥处置应对日本舰机滋扰挑衅。</div>
+      <span class="topic-tag tag-热点">军事热点</span>
+      <span class="topic-tag tag-科普">国防科普</span>
+    </div>
+    <div class="news-item">
+      <div class="title">高清大图！沉浸式感受辽宁舰远海实战化训练现场</div>
+      <div class="brief">央视军事发布辽宁舰远海训练独家画面，展现航母编队多课目实战化训练场景，有力提升航母编队履行使命任务能力。</div>
+      <span class="topic-tag tag-热点">视觉向</span>
+      <span class="topic-tag tag-数据">独家画面</span>
+    </div>
+  </div>
+</div>
+
+<!-- 社会民生 -->
+<div class="cat-card c-民生">
+  <div class="cat-header">
+    <div class="cat-icon">🏠</div>
+    <div class="cat-name">社会民生</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">南方多地强降雨持续，柳江出现今年首个编号洪水</div>
+      <div class="brief">柳江出现今年大江大河首个编号洪水，柳州城区出现5年一遇洪峰水位。国家防总多部门会商，关注中小河流洪水、城市内涝和农田渍涝风险。6月23日晚起新一轮持续性较强降雨将至。</div>
+      <span class="topic-tag tag-热点">防汛抗灾</span>
+      <span class="topic-tag tag-数据">应急响应</span>
+    </div>
+    <div class="news-item">
+      <div class="title">端午假期出入境666.7万人次，同比增长12.9%</div>
+      <div class="brief">国家移民管理局数据：端午假期全国边检机关保障666.7万人次出入境，日均222.2万人次，较去年端午同期增长12.9%。单日最高峰6月20日达230.8万人次。</div>
+      <span class="topic-tag tag-数据">出行数据</span>
+      <span class="topic-tag tag-趋势">跨境复苏</span>
+    </div>
+    <div class="news-item">
+      <div class="title">广肇高速金马大桥合龙，公共机构碳排放将下降8.5%</div>
+      <div class="brief">广肇高速新建金马大桥顺利合龙，完善大湾区交通网。"十五五"时期全国公共机构单位建筑面积碳排放将力争下降8.5%。端午食品安全总体平稳。</div>
+      <span class="topic-tag tag-趋势">基建进展</span>
+      <span class="topic-tag tag-科普">绿色低碳</span>
+    </div>
+  </div>
+</div>
+
+<!-- 生态环保 -->
+<div class="cat-card c-生态">
+  <div class="cat-header">
+    <div class="cat-icon">🌿</div>
+    <div class="cat-name">生态环保</div>
+    <div class="hot-badge">📋 执法</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">全国人大常委会启动青藏高原生态保护法执法检查</div>
+      <div class="brief">这是青藏高原生态保护法实施以来的首次全面执法检查。青藏高原作为"亚洲水塔"和重要生态屏障，其保护状况直接关系到国家生态安全和可持续发展。</div>
+      <span class="topic-tag tag-深度">生态保护</span>
+      <span class="topic-tag tag-热点">首次执法</span>
+    </div>
+    <div class="news-item">
+      <div class="title">中央财政下达农业生产防灾救灾资金2.19亿元</div>
+      <div class="brief">支持各地做好农业防灾救灾工作，保障三夏生产顺利推进。长江中下游一带雨势再度增强，多地加强监测预警和应急响应。</div>
+      <span class="topic-tag tag-数据">财政支持</span>
+      <span class="topic-tag tag-趋势">防灾减灾</span>
+    </div>
+  </div>
+</div>
+
+<!-- 文化教育 -->
+<div class="cat-card c-文化">
+  <div class="cat-header">
+    <div class="cat-icon">📺</div>
+    <div class="cat-name">文化教育</div>
+  </div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">第31届上海电视节今日开幕：五大洲60国千余部作品角逐白玉兰</div>
+      <div class="brief">第31届上海电视节6月22日-26日举办，征集到来自五大洲60个国家和地区的千余部作品，涵盖电视剧、纪录片、动画片、综艺四大类别。创办40年，已发展为亚洲最重要国际电视交流平台之一。</div>
+      <span class="topic-tag tag-热点">文化热点</span>
+      <span class="topic-tag tag-趋势">产业向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">历史上的今天：1900年6月22日敦煌莫高窟藏经洞被发现</div>
+      <div class="brief">126年前的今天，敦煌莫高窟藏经洞被发现，大量珍贵文物文书重见天日。这一发现改变了国际敦煌学的研究格局，也成为中国文化遗产保护的重要起点。</div>
+      <span class="topic-tag tag-科普">文化传承</span>
+      <span class="topic-tag tag-深度">历史纪念</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- ====== TOPIC BANK ====== -->
+<div class="section-title"><span class="icon">🎯</span> 爆款选题库 TOP 10</div>
+
+<div class="topic-bank">
+
+<div class="topic-item">
+  <span class="topic-rank">1</span>
+  <span class="topic-title">1万亿以旧换新！1.36亿人用脚投票的消费真相是什么？</span>
+  <span class="topic-score">⭐ 9.5</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">经济消费</span>
+    <span class="topic-tag tag-数据">数据向</span>
+    <span class="topic-tag tag-热点">短视频</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「1万亿」：谁在换？换了什么？一张图看懂消费图谱</li>
+      <li>「汽车5552亿 vs 家电4516亿」：两大品类消费逻辑有何不同？</li>
+      <li>「1.36亿人次」：政策惠及面到底有多大？</li>
+      <li>「农村消费升级」：下沉市场的真实面貌和消费潜力</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">2</span>
+  <span class="topic-title">辽宁舰40天远海训练归来！中国航母战力全景解读</span>
+  <span class="topic-score">⭐ 9.3</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">军事热点</span>
+    <span class="topic-tag tag-科普">国防科普</span>
+    <span class="topic-tag tag-数据">公众号长文</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「40余天跨海区」：辽宁舰编队走了多远？练了什么？</li>
+      <li>「南海→西太平洋」：航线背后的战略纵深解读</li>
+      <li>「舰载机战术飞行」：航母核心战斗力的关键指标</li>
+      <li>「处置日舰机挑衅」：远海训练中的真实交锋瞬间</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">3</span>
+  <span class="topic-title">英国首相斯塔默辞职！十年五任首相，英国政治出了什么问题？</span>
+  <span class="topic-score">⭐ 9.1</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">国际热点</span>
+    <span class="topic-tag tag-深度">深度分析</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「斯塔默为何倒下」：地方选举惨败与党内逼宫全复盘</li>
+      <li>「十年五任首相」：从卡梅伦到斯塔默，英国政坛时间线</li>
+      <li>「脱欧后遗症」：英国经济的深层困境与政治不稳定</li>
+      <li>「对中英关系的影响」：新首相上台后的政策走向预判</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">4</span>
+  <span class="topic-title">链博会今日开幕！AI专区+676家企业，今年有什么黑科技？</span>
+  <span class="topic-score">⭐ 8.8</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">展会热点</span>
+    <span class="topic-tag tag-趋势">AI+供应链</span>
+    <span class="topic-tag tag-科普">探展vlog</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「6链1展区」：一张图看懂链博会全貌</li>
+      <li>「AI专区首次亮相」：苹果、科大讯飞带来了什么？</li>
+      <li>「676家中外企业」：哪些值得关注？重点展台速览</li>
+      <li>「从数字科技到数智科技」：一字之差背后的产业升级</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">5</span>
+  <span class="topic-title">15条外资新政出炉！中国向世界发出什么信号？</span>
+  <span class="topic-score">⭐ 8.6</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-深度">政策解读</span>
+    <span class="topic-tag tag-趋势">外资风向</span>
+    <span class="topic-tag tag-数据">财经分析</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「15条逐一拆解」：哪些行业最受益？哪些开放力度最大？</li>
+      <li>「服务业+金融+医药」：三大领域扩大准入意味着什么？</li>
+      <li>「外资信心数据」：今年以来外资实际使用情况全景</li>
+      <li>「与达沃斯的联动」：外资新政+全球论坛的同频信号</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">6</span>
+  <span class="topic-title">夏播七成+智慧气象：当种地开始用AI，粮食安全有了新答案</span>
+  <span class="topic-score">⭐ 8.3</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-科普">科技农业</span>
+    <span class="topic-tag tag-数据">夏播数据</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「夏播七成」：全国夏播进度图+各省对比</li>
+      <li>「智慧气象如何护航三夏」：从"看天吃饭"到"知天而作"</li>
+      <li>「防灾资金2.19亿」：财政如何兜底粮食安全？</li>
+      <li>「科技种地的真实图景」：无人机、传感器、AI决策在田间</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">7</span>
+  <span class="topic-title">柳江1号洪水来袭！今年汛期有多严峻？城市内涝自救指南</span>
+  <span class="topic-score">⭐ 8.0</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">防汛抗灾</span>
+    <span class="topic-tag tag-科普">实用科普</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「柳江1号洪水」：5年一遇洪峰意味着什么？</li>
+      <li>「今年首个编号洪水」：全国汛情全景图</li>
+      <li>「城市内涝自救」：遇到积水、断电、被困怎么办？</li>
+      <li>「新一轮降雨预警」：6月23日起哪些地区需警惕？</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">8</span>
+  <span class="topic-title">端午出入境666.7万人次！谁在出境？谁又来了中国？</span>
+  <span class="topic-score">⭐ 7.8</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-数据">出行数据</span>
+    <span class="topic-tag tag-趋势">跨境趋势</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「666.7万增长12.9%」：跨境游全面复苏的证据</li>
+      <li>「日均222.2万 vs 最高230.8万」：高峰日发生了什么？</li>
+      <li>「谁在出入境」：出境游目的地和入境游客源地分析</li>
+      <li>「30.5万架次交通」：飞机、轮船、列车的跨境运力对比</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">9</span>
+  <span class="topic-title">明天大连达沃斯开幕！1700位全球精英在焦虑什么？</span>
+  <span class="topic-score">⭐ 7.6</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">经济前瞻</span>
+    <span class="topic-tag tag-趋势">全球创新</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「1700人创纪录」：为什么今年达沃斯规模最大？</li>
+      <li>「规模化创新」：主题背后的全球产业焦虑与期待</li>
+      <li>「大连准备好了吗」：会场、服务、安保全景扫描</li>
+      <li>「达沃斯议程速览」：哪些议题最值得关注？</li>
+    </ul>
+  </div>
+</div>
+
+<div class="topic-item">
+  <span class="topic-rank">10</span>
+  <span class="topic-title">上海电视节40年：从白玉兰奖看中国电视剧的国际之路</span>
+  <span class="topic-score">⭐ 7.4</span>
+  <div class="topic-meta">
+    <span class="topic-tag tag-热点">文化热点</span>
+    <span class="topic-tag tag-趋势">产业观察</span>
+  </div>
+  <div class="topic-angle">
+    <div class="angle-label">📐 内容角度</div>
+    <ul>
+      <li>「40年上海电视节」：从1986到2026的进化史</li>
+      <li>「60国千余部作品」：白玉兰奖的国际化程度有多高？</li>
+      <li>「中国电视剧出海」：哪些作品在海外火了？</li>
+      <li>「影视市场打通」：电影节+电视节联动的新模式</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+
+<!-- ====== CONTENT FORMAT MATRIX ====== -->
+<div class="chart-container">
+  <div class="section-title" style="margin-top:0;"><span class="icon">🎬</span> 选题 → 内容形态 适配矩阵</div>
+  <table class="fmt-table">
+    <tr><th style="text-align:left;width:30%">选题</th><th>短视频</th><th>公众号</th><th>H5/长图</th><th>漫画</th><th>小红书</th><th>朋友圈</th></tr>
+    <tr><td class="fmt-name">以旧换新1万亿</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">辽宁舰远海训练</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-no">-</td><td class="fmt-no">-</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">英国首相辞职</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-no">-</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">链博会AI专区</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">外资新政15条</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-no">-</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">夏播智慧气象</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">柳江洪水防汛</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+  </table>
+</div>
+
+<!-- ====== 12 CORE PRINCIPLES CHECKLIST ====== -->
+<div class="chart-container">
+  <div class="section-title" style="margin-top:0;"><span class="icon">✅</span> 12条爆款心法筛查</div>
+  <div class="principles-list">
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ① 用户思维优先 — 选题均从受众利益切入（消费省钱、军事科普、防汛安全）</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ② 热点热度足够 — 以旧换新万亿+辽宁舰返航+英国首相辞职均为当日最高热度</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ③ 传播点明确 — 每条选题有明确"截图锚点"和分享动机</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ④ 可互动可视化 — 1万亿消费数据/辽宁舰高清大图/链博会展位适配多形态</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑤ 叙事张力 — 英国首相辞职+辽宁舰远海训练天然有故事性和戏剧张力</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑥ 化繁为简 — 1万亿/666.7万/40余天/15条等数据已提炼核心记忆点</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑦ 体验一致性 — 多形态方案保持核心信息一致</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑧ 参与门槛低 — "你换新了吗""你怎么看英国换相"直接触发互动</div>
+    <div class="principle-item"><span class="p-icon" style="color:#e67e22">⚠️</span> ⑨ 声音加成 — 辽宁舰/链博会AI适合短视频配乐，经济数据类偏弱</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑩ 立场安全 — 已过滤全部政治党建敏感话题</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑪ 信息源可信 — 全部源自央视新闻联播2026年6月22日官方渠道</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑫ 合规可上线 — 无敏感词、无绝对化表述、无诱导分享</div>
+  </div>
+</div>
+
+<!-- ====== TIMELINE: 发布节奏 ====== -->
+<div class="section-title"><span class="icon">⏰</span> 发布节奏建议 — "一个热点吃三轮"</div>
+
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-date">6月22日 21:00 — 第一轮</div>
+    <div class="tl-text">短视频/朋友圈海报：以旧换新1万亿数据速读 + 英国首相辞职突发快讯 + 辽宁舰返航高清图集（当晚趁热打铁，抢晚间流量高峰）</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">6月23日 08:00 — 第二轮</div>
+    <div class="tl-text">公众号长文：外资新政15条深度解读 + 链博会AI专区探展 + 达沃斯前瞻（节后早高峰深度阅读）</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">6月23日 12:00 — 第三轮</div>
+    <div class="tl-text">小红书/微博：柳江洪水防汛自救指南 + 夏播智慧气象科普 + 上海电视节文化观察（午休碎片阅读）</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">6月24日 20:00 — 长尾</div>
+    <div class="tl-text">辽宁舰远海训练深度解读H5 + 端午出入境666.7万数据专题 + 英国政治变局国际观察（持续发酵）</div>
+  </div>
+</div>
+
+<!-- ====== RISK CHECK ====== -->
+<div class="chart-container">
+  <div class="section-title" style="margin-top:0;"><span class="icon">🛡️</span> 风险自检</div>
+  <div class="risk-list">
+    <div class="risk-item"><span class="risk-ok">✅</span> 已过滤所有政治/党建/领导人相关话题（联播第1/2/4条已过滤）</div>
+    <div class="risk-item"><span class="risk-ok">✅</span> 国际话题采用客观陈述，无站队/带节奏</div>
+    <div class="risk-item"><span class="risk-ok">✅</span> 无"最""第一""绝对"等广告法禁用词</div>
+    <div class="risk-item"><span class="risk-ok">✅</span> 无诱导分享/标题党/震惊体</div>
+    <div class="risk-item"><span class="risk-ok">✅</span> 所有数据来源可追溯至央视新闻联播</div>
+    <div class="risk-item"><span class="risk-warn">⚠️</span> 英国首相辞职为动态事件，建议持续跟踪继任者进展</div>
+    <div class="risk-item"><span class="risk-warn">⚠️</span> 链博会+达沃斯同期举行，建议关注每日亮点及时更新</div>
+    <div class="risk-item"><span class="risk-warn">⚠️</span> 柳江汛情持续发展，23日起新一轮降雨，需持续关注</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>📺 数据来源：CCTV新闻联播 2026年6月22日</p>
+  <p>🔧 工具：新闻摘要 × 内容工厂 × 10万+爆款选题炼金炉</p>
+  <p class="foot-note">内容仅供选题参考，实际发布前请核实最新信息</p>
+</div>
+
+</body>
+</html>
