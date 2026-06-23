@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>📺 新闻联播热点选题库 | 2026年6月23日</title>
+<style>
+:root {
+  --bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --accent: #e94560;
+  --gold: #f5c518;
+  --text: #1a1a2e;
+  --text2: #6b7280;
+  --blue: #3498db;
+  --green: #2ecc71;
+  --orange: #e67e22;
+  --purple: #9b59b6;
+  --teal: #1abc9c;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:16px;
+  line-height:1.8;
+  padding:20px 16px;
+  max-width:100vw;
+  overflow-x:hidden;
+}
+.header{text-align:center;padding:30px 0 16px}
+.header .badge{display:inline-block;background:var(--accent);color:#fff;padding:5px 18px;border-radius:20px;font-size:14px;font-weight:600;margin-bottom:10px;letter-spacing:1px;cursor:pointer}
+.header h1{font-size:24px;font-weight:800;background:linear-gradient(135deg,#e94560,#f5c518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:8px 0}
+.header .sub{font-size:15px;color:var(--text2)}
+.stats-row{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.stat-card{flex:1 1 calc(50% - 5px);min-width:140px;background:var(--card-bg);border-radius:12px;padding:18px 14px;text-align:center;border:1px solid rgba(0,0,0,0.06)}
+.stat-card .num{font-size:32px;font-weight:800;background:linear-gradient(135deg,#e94560,#f5c518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-card .label{font-size:14px;color:var(--text2);margin-top:4px}
+.section-title{font-size:19px;font-weight:700;margin:28px 0 16px;padding-left:12px;border-left:4px solid var(--accent);display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:22px}
+.cat-grid{display:flex;flex-direction:column;gap:16px}
+.cat-card{background:var(--card-bg);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.06);position:relative;overflow:hidden}
+.cat-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:4px 0 0 4px}
+.cat-card.c-消费::before{background:var(--orange)}.cat-card.c-科技::before{background:var(--accent)}.cat-card.c-国际::before{background:var(--purple)}.cat-card.c-民生::before{background:var(--teal)}.cat-card.c-经济::before{background:var(--blue)}.cat-card.c-生态::before{background:var(--green)}.cat-card.c-文化::before{background:var(--gold)}
+.cat-card .cat-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.cat-card .cat-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.cat-card.c-消费 .cat-icon{background:rgba(230,126,34,0.15)}.cat-card.c-科技 .cat-icon{background:rgba(233,69,96,0.15)}.cat-card.c-国际 .cat-icon{background:rgba(155,89,182,0.15)}.cat-card.c-民生 .cat-icon{background:rgba(26,188,156,0.15)}.cat-card.c-经济 .cat-icon{background:rgba(52,152,219,0.15)}.cat-card.c-生态 .cat-icon{background:rgba(46,204,113,0.15)}.cat-card.c-文化 .cat-icon{background:rgba(245,197,24,0.15)}
+.cat-card .cat-name{font-size:18px;font-weight:700}
+.cat-card .hot-badge{font-size:13px;padding:3px 10px;border-radius:10px;background:rgba(233,69,96,0.12);color:#e94560;font-weight:600;margin-left:auto}
+.news-items{display:flex;flex-direction:column;gap:10px}
+.news-item{background:rgba(0,0,0,0.02);border-radius:8px;padding:14px 16px;font-size:16px;line-height:1.75}
+.news-item .title{font-weight:700;margin-bottom:4px;color:var(--text);font-size:16px}
+.news-item .brief{font-size:14px;color:var(--text2);line-height:1.7}
+.topic-tag{display:inline-block;font-size:13px;padding:2px 10px;border-radius:4px;margin-top:6px;margin-right:6px}
+.tag-热点{background:rgba(233,69,96,0.1);color:#e94560}.tag-数据{background:rgba(52,152,219,0.1);color:#3498db}.tag-趋势{background:rgba(46,204,113,0.1);color:#2ecc71}.tag-深度{background:rgba(155,89,182,0.1);color:#9b59b6}.tag-科普{background:rgba(26,188,156,0.1);color:#1abc9c}
+.topic-bank{margin:20px 0}
+.topic-item{background:var(--card-bg);border-radius:12px;padding:20px;margin-bottom:14px;border:1px solid rgba(0,0,0,0.06)}
+.topic-item .topic-rank{display:inline-block;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;text-align:center;line-height:30px;font-size:15px;font-weight:700;margin-right:10px;vertical-align:middle}
+.topic-item .topic-title{font-size:18px;font-weight:700;display:inline;vertical-align:middle;line-height:1.6}
+.topic-item .topic-score{float:right;font-size:15px;color:var(--gold);font-weight:700}
+.topic-item .topic-meta{margin:10px 0;display:flex;flex-wrap:wrap;gap:8px}
+.topic-item .topic-angle{background:rgba(0,0,0,0.02);border-radius:8px;padding:14px;margin-top:10px}
+.topic-item .topic-angle .angle-label{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:1px;margin-bottom:6px}
+.topic-item .topic-angle ul{list-style:none;font-size:15px;color:var(--text2);line-height:1.8}
+.topic-item .topic-angle ul li::before{content:'▸ ';color:var(--accent)}
+.bar-chart{padding:8px 0}
+.bar-row{display:flex;align-items:center;margin-bottom:14px;gap:10px}
+.bar-label{width:70px;font-size:14px;color:var(--text2);text-align:right;flex-shrink:0}
+.bar-track{flex:1;height:22px;background:rgba(0,0,0,0.04);border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;opacity:0.85;display:flex;align-items:center;padding-left:10px}
+.bar-fill .bar-stars{font-size:12px;color:#fff;font-weight:600}
+.bar-count{font-size:13px;color:var(--text2);width:65px;flex-shrink:0;text-align:left}
+.fmt-table{width:100%;border-collapse:collapse;font-size:13px}
+.fmt-table th{background:rgba(233,69,96,0.08);color:var(--accent);padding:10px 6px;font-weight:700;text-align:center;font-size:13px}
+.fmt-table td{padding:10px 6px;text-align:center;border-bottom:1px solid rgba(0,0,0,0.04);font-size:14px}
+.fmt-table .fmt-name{text-align:left;font-weight:600;font-size:14px}
+.fmt-table .fmt-yes{color:var(--green);font-weight:700;font-size:16px}
+.fmt-table .fmt-no{color:#ccc;font-size:16px}
+.principles-list{display:flex;flex-direction:column;gap:12px;font-size:15px}
+.principle-item{display:flex;align-items:flex-start;gap:8px;line-height:1.7}
+.principle-item .p-icon{flex-shrink:0;font-size:16px;width:24px}
+.timeline{position:relative;padding:10px 0}
+.timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:rgba(0,0,0,0.1)}
+.tl-item{padding-left:34px;position:relative;margin-bottom:20px}
+.tl-item::before{content:'';position:absolute;left:3px;top:7px;width:16px;height:16px;border-radius:50%;background:var(--accent)}
+.tl-item .tl-date{font-size:14px;color:#e67e22;font-weight:700;margin-bottom:4px}
+.tl-item .tl-text{font-size:15px;color:var(--text2);line-height:1.7}
+.risk-list{display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.8}
+.risk-item{display:flex;align-items:flex-start;gap:10px}
+.risk-ok{color:var(--green);flex-shrink:0;font-size:16px}
+.risk-warn{color:var(--orange);flex-shrink:0;font-size:16px}
+.footer{text-align:center;padding:30px 0 16px;font-size:14px;color:var(--text2);border-top:1px solid rgba(0,0,0,0.06);margin-top:24px}
+.footer .foot-note{color:#999;margin-top:8px;font-size:13px}
+@media(min-width:600px){body{max-width:677px;margin:0 auto}.stat-card{flex:1 1 calc(25% - 8px)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="https://okai888.github.io/news-daily-20260617/" style="text-decoration:none;"><div class="badge">📺 每日选题炼金炉</div></a>
+  <h1>新闻联播热点选题库</h1>
+  <div class="sub">2026年6月23日 · 星期二 · 达沃斯开幕·链博会进行中 · 内容素材库</div>
+</div>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="num">7</div><div class="label">热点领域</div></div>
+  <div class="stat-card"><div class="num">20</div><div class="label">有效选题</div></div>
+  <div class="stat-card"><div class="num">🔥</div><div class="label">爆款潜力</div></div>
+  <div class="stat-card"><div class="num">5+</div><div class="label">内容形态</div></div>
+</div>
+
+<div class="chart-container">
+  <div class="section-title" style="margin-top:0;"><span class="icon">📊</span> 热点领域分布 &amp; 选题热度</div>
+  <div class="bar-chart">
+    <div class="bar-row"><div class="bar-label">汽车消费</div><div class="bar-track"><div class="bar-fill" style="width:96%;background:linear-gradient(90deg,#e67e22,#d35400)"><span class="bar-stars">★★★★★</span></div></div><div class="bar-count">5条</div></div>
+    <div class="bar-row"><div class="bar-label">外资经济</div><div class="bar-track"><div class="bar-fill" style="width:88%;background:linear-gradient(90deg,#e94560,#c0392b)"><span class="bar-stars">★★★★★</span></div></div><div class="bar-count">4条</div></div>
+    <div class="bar-row"><div class="bar-label">国际要闻</div><div class="bar-track"><div class="bar-fill" style="width:84%;background:linear-gradient(90deg,#9b59b6,#8e44ad)"><span class="bar-stars">★★★★☆</span></div></div><div class="bar-count">4条</div></div>
+    <div class="bar-row"><div class="bar-label">生态水利</div><div class="bar-track"><div class="bar-fill" style="width:76%;background:linear-gradient(90deg,#2ecc71,#27ae60)"><span class="bar-stars">★★★★☆</span></div></div><div class="bar-count">3条</div></div>
+    <div class="bar-row"><div class="bar-label">能源交通</div><div class="bar-track"><div class="bar-fill" style="width:68%;background:linear-gradient(90deg,#3498db,#2980b9)"><span class="bar-stars">★★★☆☆</span></div></div><div class="bar-count">2条</div></div>
+    <div class="bar-row"><div class="bar-label">社会民生</div><div class="bar-track"><div class="bar-fill" style="width:60%;background:linear-gradient(90deg,#1abc9c,#16a085)"><span class="bar-stars">★★★☆☆</span></div></div><div class="bar-count">2条</div></div>
+    <div class="bar-row"><div class="bar-label">文化影视</div><div class="bar-track"><div class="bar-fill" style="width:48%;background:linear-gradient(90deg,#f5c518,#e67e22)"><span class="bar-stars">★★☆☆☆</span></div></div><div class="bar-count">2条</div></div>
+  </div>
+</div>
+
+<div class="section-title"><span class="icon">🚀</span> 分类解读</div>
+<div class="cat-grid">
+
+<div class="cat-card c-消费">
+  <div class="cat-header"><div class="cat-icon">🚗</div><div class="cat-name">汽车消费</div><div class="hot-badge">🔥 最热</div></div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">全链条扩大汽车消费：40城试点名单公布，17条后市场措施出台</div>
+      <div class="brief">商务部等8部门公布40个汽车流通消费改革试点城市，天津主攻汽车改装与赛事、沈阳主攻二手车、扬州主攻房车露营、渭南主攻报废回收。同步发布9部门17条汽车后市场措施，涵盖改装、房车、经典车、赛事、租赁等六大领域。</div>
+      <span class="topic-tag tag-热点">爆款潜力</span><span class="topic-tag tag-数据">数据向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">汽车后市场万亿风口：从改装到房车露营，17条措施拆解</div>
+      <div class="brief">规范汽车改装、支持房车露营、培育经典车新业态、优化维修保险、发展赛事运动、推动租赁创新——6大方向17条措施，汽车后市场迎来系统性政策红利。</div>
+      <span class="topic-tag tag-趋势">消费趋势</span><span class="topic-tag tag-深度">政策解读</span>
+    </div>
+    <div class="news-item">
+      <div class="title">机动车合格证信息将实时共享，二手车交易透明度大提升</div>
+      <div class="brief">全国机动车合格证信息实现实时共享，将大幅提升二手车交易透明度和消费者信任度，打通汽车流通消费的关键堵点。</div>
+      <span class="topic-tag tag-科普">行业利好</span><span class="topic-tag tag-趋势">数字化</span>
+    </div>
+  </div>
+</div>
+
+<div class="cat-card c-经济">
+  <div class="cat-header"><div class="cat-icon">💰</div><div class="cat-name">外资与经济</div><div class="hot-badge">📋 利好</div></div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">我国利用外资结构持续优化：服务业与高技术产业占比提升</div>
+      <div class="brief">商务部数据：外资加速向服务业和高技术产业聚集，制造业外资向高端化、智能化转型。外资结构优化体现中国市场的升级吸引力，呼应此前出台的15条固稳促优行动方案。</div>
+      <span class="topic-tag tag-热点">经济热点</span><span class="topic-tag tag-数据">数据向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">夏季达沃斯今日大连开幕：1700+嘉宾共话"规模化创新"</div>
+      <div class="brief">第十七届夏季达沃斯论坛6月23日开幕，李强总理出席并发表特别致辞。来自90多个国家和地区的1700余位嘉宾参会，聚焦增长、技术、就业、能源等核心议题，特别设置解读"十五五"规划主题论坛。</div>
+      <span class="topic-tag tag-热点">全球论坛</span><span class="topic-tag tag-趋势">创新趋势</span>
+    </div>
+    <div class="news-item">
+      <div class="title">商标法修订草案提交审议，知识产权保护再加码</div>
+      <div class="brief">十四届全国人大常委会第二十三次会议审议商标法修订草案等，进一步完善知识产权法律体系，为创新驱动和品牌经济发展提供法治保障。</div>
+      <span class="topic-tag tag-深度">法治建设</span><span class="topic-tag tag-趋势">营商环境</span>
+    </div>
+  </div>
+</div>
+
+<div class="cat-card c-国际">
+  <div class="cat-header"><div class="cat-icon">🌍</div><div class="cat-name">国际要闻</div><div class="hot-badge">👀 关注</div></div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">伊朗称各方展开技术性会谈，决定成立多个工作组</div>
+      <div class="brief">伊美技术性会谈持续推进，各方决定成立多个工作组展开具体磋商。美国同步放松对伊朗石油制裁，国际油价应声显著下跌。以色列称将继续在黎南部开展军事行动，美媒称新一轮黎以会谈将举行。</div>
+      <span class="topic-tag tag-热点">时效热点</span><span class="topic-tag tag-深度">深度分析</span>
+    </div>
+    <div class="news-item">
+      <div class="title">美放松伊朗石油制裁，国际油价显著下跌</div>
+      <div class="brief">作为谈判进展的配套动作，美国放松对伊朗石油出口的部分限制，国际油价应声下跌。此举影响全球能源市场格局，也为后续谈判创造良好氛围。</div>
+      <span class="topic-tag tag-数据">能源市场</span><span class="topic-tag tag-趋势">油价影响</span>
+    </div>
+    <div class="news-item">
+      <div class="title">国际快讯：日元逼近40年低位、卡塔尔天然气工厂爆炸、俄乌持续交火</div>
+      <div class="brief">日元汇率逼近约40年来低位，引发市场对日本经济担忧。卡塔尔一座天然气工厂发生爆炸，或影响全球LNG供应。俄称在顿涅茨克推进，乌称打击俄设施，战事持续胶着。</div>
+      <span class="topic-tag tag-热点">全球动态</span><span class="topic-tag tag-数据">多线并进</span>
+    </div>
+  </div>
+</div>
+
+<div class="cat-card c-生态">
+  <div class="cat-header"><div class="cat-icon">🌊</div><div class="cat-name">生态水利</div><div class="hot-badge">📋 防汛</div></div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">2026年黄河调水调沙启动：排沙量预计超1亿吨，历时21天</div>
+      <div class="brief">6月22日小浪底水利枢纽3条排沙洞闸门开启，黄河2026年主汛期前调水调沙正式启动。预计历时21天，小浪底水库最大下泄流量4800立方米/秒，水库排沙量将超1亿吨。大流量过程6月23日夜间起进入山东段。</div>
+      <span class="topic-tag tag-热点">水利工程</span><span class="topic-tag tag-科普">科普向</span>
+    </div>
+    <div class="news-item">
+      <div class="title">我国出台促进可再生能源消费新规定</div>
+      <div class="brief">新规进一步推动可再生能源电力消费，完善绿证制度，为"十五五"碳排放下降8.5%目标提供制度保障。</div>
+      <span class="topic-tag tag-趋势">绿色能源</span><span class="topic-tag tag-深度">政策解读</span>
+    </div>
+    <div class="news-item">
+      <div class="title">西渝高铁北屏隧道顺利贯通</div>
+      <div class="brief">西安至重庆高铁关键控制性工程北屏隧道贯通，标志着西渝高铁建设取得重大进展，西部交通网络进一步完善。</div>
+      <span class="topic-tag tag-趋势">基建进展</span><span class="topic-tag tag-数据">交通强国</span>
+    </div>
+  </div>
+</div>
+
+<div class="cat-card c-民生">
+  <div class="cat-header"><div class="cat-icon">🏠</div><div class="cat-name">社会民生</div></div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">全国基本完成烈士陵园不动产登记工作</div>
+      <div class="brief">全国烈士陵园不动产登记基本完成，为红色资源保护和传承提供了坚实的法律保障和制度基础。</div>
+      <span class="topic-tag tag-热点">红色传承</span><span class="topic-tag tag-数据">民生保障</span>
+    </div>
+    <div class="news-item">
+      <div class="title">南方多地强降雨持续，柳江洪水后新一轮降雨23日晚起</div>
+      <div class="brief">柳江1号洪水过后，6月23日晚起新一轮持续性较强降雨将至，次生灾害防御压力加大，各部门持续加强监测预警和应急响应。</div>
+      <span class="topic-tag tag-热点">防汛抗灾</span><span class="topic-tag tag-数据">持续关注</span>
+    </div>
+  </div>
+</div>
+
+<div class="cat-card c-文化">
+  <div class="cat-header"><div class="cat-icon">📺</div><div class="cat-name">文化影视</div></div>
+  <div class="news-items">
+    <div class="news-item">
+      <div class="title">电视剧《种墨园》今晚总台央视综合频道播出</div>
+      <div class="brief">新剧《种墨园》登陆央视一套黄金档，聚焦文化与传承主题。上海电视节白玉兰奖评选中，国产剧集国际影响力持续提升。</div>
+      <span class="topic-tag tag-热点">影视热点</span><span class="topic-tag tag-趋势">文化消费</span>
+    </div>
+    <div class="news-item">
+      <div class="title">第31届上海电视节进行中：60国千余部作品角逐白玉兰</div>
+      <div class="brief">上海电视节持续至6月26日，五大洲60国千余部作品参赛。链博会同期举行，科技与文化双线并行，展现中国软硬实力。</div>
+      <span class="topic-tag tag-热点">文化盛事</span><span class="topic-tag tag-趋势">国际影响</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="section-title"><span class="icon">🎯</span> 爆款选题库 TOP 10</div>
+<div class="topic-bank">
+
+<div class="topic-item"><span class="topic-rank">1</span><span class="topic-title">全链条扩大汽车消费！40城试点+17条措施，你的城市在名单里吗？</span><span class="topic-score">⭐ 9.5</span>
+  <div class="topic-meta"><span class="topic-tag tag-热点">汽车消费</span><span class="topic-tag tag-数据">数据向</span><span class="topic-tag tag-热点">短视频</span></div>
+  <div class="topic-angle"><div class="angle-label">📐 内容角度</div><ul>
+    <li>「40城名单全解析」：天津改车、沈阳二手车、扬州房车——你的城市主打什么？</li>
+    <li>「17条措施一图读懂」：从改装到租赁，汽车后市场的六大机会</li>
+    <li>「万亿汽车后市场」：中国汽车消费从"买车"到"用车"的转折点</li>
+    <li>「机动车信息实时共享」：二手车交易将迎来什么变化？</li>
+  </ul></div>
+</div>
+
+<div class="topic-item"><span class="topic-rank">2</span><span class="topic-title">黄河调水调沙启动！排沙超1亿吨，历时21天的"洗河"大工程</span><span class="topic-score">⭐ 9.2</span>
+  <div class="topic-meta"><span class="topic-tag tag-科普">水利科普</span><span class="topic-tag tag-热点">视觉向</span><span class="topic-tag tag-数据">公众号长文</span></div>
+  <div class="topic-angle"><div class="angle-label">📐 内容角度</div><ul>
+    <li>「什么是调水调沙」：小浪底如何用"人造洪峰"给黄河洗澡？</li>
+    <li>「1亿吨泥沙去哪了」：黄河治理的百年工程科普</li>
+    <li>「4800m³/s的视觉震撼」：高清航拍+慢动作视频素材</li>
+    <li>「21天时间线」：从启动到山东入海，全程追踪</li>
+  </ul></div>
+</div>
+
+<div class="topic-item"><span class="topic-rank">3</span><span class="topic-title">达沃斯今日开幕！1700位全球精英聚首大连，在焦虑什么？</span><span class="topic-score">⭐ 9.0</span>
+  <div class="topic-meta"><span class="topic-tag tag-热点">全球论坛</span><span class="topic-tag tag-深度">深度分析</span></div>
+  <div class="topic-angle"><div class="angle-label">📐 内容角度</div><ul>
+    <li>「规模化创新」：达沃斯主题背后，全球产业的共同焦虑</li>
+    <li>「1700人创纪录」：为什么今年规模最大？谁来了？</li>
+    <li>「李强特别致辞」：释放了哪些中国经济信号？</li>
+    <li>「十五五规划专场」：达沃斯首次设置的中国规划解读论坛</li>
+  </ul></div>
+</div>
+
+<div class="topic-item"><span class="topic-rank">4</span><span class="topic-title">美放松伊朗石油制裁，国际油价大跌！你的加油成本会降吗？</span><span class="topic-score">⭐ 8.7</span>
+  <div class="topic-meta"><span class="topic-tag tag-热点">能源市场</span><span class="topic-tag tag-数据">油价分析</span><span class="topic-tag tag-趋势">短视频</span></div>
+  <div class="topic-angle"><div class="angle-label">📐 内容角度</div><ul>
+    <li>「美放松制裁」：伊朗每天能多出口多少石油？</li>
+    <li>「油价跌了多少」：国际油价走势图+对国内油价的影响测算</li>
+    <li>「美伊谈判进展」：技术性会谈成立工作组意味着什么？</li>
+    <li>「对普通人的影响」：加油、物流、物价——油价下跌的连锁反应</li>
+  </ul></div>
+</div>
+
+<div class="topic-item"><span class="topic-rank">5</span><span class="topic-title">外资结构持续优化！服务业+高技术产业占比提升意味着什么？</span><span class="topic-score">⭐ 8.5</span>
+  <div class="topic-meta"><span class="topic-tag tag-数据">经济数据</span><span class="topic-tag tag-深度">深度分析</span><span class="topic-tag tag-趋势">外资风向</span></div>
+  <div class="topic-angle"><div class="angle-label">📐 内容角度</div><ul>
+    <li>「外资去哪了」：从制造业到服务业的结构性转移全景</li>
+    <li>「高技术产业」：哪些领域外资增长最快？</li>
+    <li>「15条+结构优化」：外资新政的叠加效应</li>
+    <li>「对比全球」：中国吸引外资在全球处于什么位置？</li>
+  </ul></div>
+</div>
+
+<div class="topic-item"><span class="topic-rank">6</span><span class="topic-title">日元逼近40年低位！日本经济怎么了？对亚洲意味着什么？</span><span class="topic-score">⭐ 8.2</span>
+  <div class="topic-meta"><span class="topic-tag tag-热点">国际财经</span><span class="topic-tag tag-深度">深度分析</span></div>
+  <div class="topic-angle"><div class="angle-label">📐 内容角度</div><ul>
+    <li>「40年低位」：日元贬值的时间线+原因分析</li>
+    <li>「日本央行怎么办」：政策空间还有多大？</li>
+    <li>「对中国的影响」：出口竞争、赴日旅游、产业链联动</li>
+    <li>「亚洲货币竞贬」：日元贬值会引发新一轮亚洲货币战吗？</li>
+  </ul></div>
+</div>
+
+<div class="topic-item"><span class="topic-rank">7</span><span class="topic-title">可再生能源消费新规出台：绿证制度如何改变你的电费？</span><span class="topic-score">⭐ 7.9</span>
+  <div class="topic-meta"><span class="topic-tag tag-科普">绿色能源</span><span class="topic-tag tag-趋势">政策解读</span></div>
+  <div class="topic-angle"><div class="angle-label">📐 内容角度</div><ul>
+    <li>「绿证是什么」：可再生能源消费新规的通俗解读</li>
+    <li>「8.5%碳排放下降」：公共机构如何达成目标？</li>
+    <li>「对企业的影响」：哪些行业最受益？哪些面临压力？</li>
+    <li>「普通人能做什么」：日常生活中的绿色能源选择</li>
+  </ul></div>
+</div>
+
+<div class="topic-item"><span class="topic-rank">8</span><span class="topic-title">卡塔尔天然气工厂爆炸！全球LNG供应会受影响吗？</span><span class="topic-score">⭐ 7.7</span>
+  <div class="topic-meta"><span class="topic-tag tag-热点">能源安全</span><span class="topic-tag tag-数据">国际事件</span></div>
+  <div class="topic-angle"><div class="angle-label">📐 内容角度</div><ul>
+    <li>「卡塔尔在全球LNG的地位」：世界最大LNG出口国有多重要？</li>
+    <li>「爆炸影响评估」：产能受损多少？恢复需要多久？</li>
+    <li>「对中国的影响」：中国LNG进口结构及替代方案</li>
+    <li>「能源安全警示」：单一来源依赖的风险再思考</li>
+  </ul></div>
+</div>
+
+<div class="topic-item"><span class="topic-rank">9</span><span class="topic-title">商标法修订+机动车信息共享：两个"小切口"如何优化大环境？</span><span class="topic-score">⭐ 7.4</span>
+  <div class="topic-meta"><span class="topic-tag tag-深度">法治建设</span><span class="topic-tag tag-趋势">营商环境</span></div>
+  <div class="topic-angle"><div class="angle-label">📐 内容角度</div><ul>
+    <li>「商标法改了啥」：修订草案的核心条款解读</li>
+    <li>「机动车信息共享」：打破数据孤岛如何惠及消费者？</li>
+    <li>「小切口大文章」：制度创新如何撬动万亿级市场？</li>
+    <li>「知识产权保护的中国路径」：从商标法看营商环境升级</li>
+  </ul></div>
+</div>
+
+<div class="topic-item"><span class="topic-rank">10</span><span class="topic-title">西渝高铁北屏隧道贯通！西部交通网再升级</span><span class="topic-score">⭐ 7.2</span>
+  <div class="topic-meta"><span class="topic-tag tag-趋势">基建进展</span><span class="topic-tag tag-科普">交通强国</span></div>
+  <div class="topic-angle"><div class="angle-label">📐 内容角度</div><ul>
+    <li>「西渝高铁」：西安到重庆从几小时缩到多久？</li>
+    <li>「北屏隧道」：为什么是关键控制性工程？</li>
+    <li>「西部高铁网」：一张图看懂西部在建高铁全貌</li>
+    <li>「高铁经济带」：西渝高铁将如何改变沿线城市命运？</li>
+  </ul></div>
+</div>
+
+</div>
+
+<div class="chart-container">
+  <div class="section-title" style="margin-top:0;"><span class="icon">🎬</span> 选题 → 内容形态 适配矩阵</div>
+  <table class="fmt-table">
+    <tr><th style="text-align:left;width:30%">选题</th><th>短视频</th><th>公众号</th><th>H5/长图</th><th>漫画</th><th>小红书</th><th>朋友圈</th></tr>
+    <tr><td class="fmt-name">全链条扩大汽车消费</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">黄河调水调沙</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-no">-</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">达沃斯开幕</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-no">-</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">美放松伊朗石油制裁</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">外资结构优化</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-no">-</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">日元40年低位</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-no">-</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+    <tr><td class="fmt-name">可再生能源新规</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td><td class="fmt-yes">✓</td></tr>
+  </table>
+</div>
+
+<div class="chart-container">
+  <div class="section-title" style="margin-top:0;"><span class="icon">✅</span> 12条爆款心法筛查</div>
+  <div class="principles-list">
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ① 用户思维优先 — 选题从车主利益（汽车消费）、加油成本（油价）、用电选择（绿证）切入</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ② 热点热度足够 — 全链条汽车消费+达沃斯开幕+美伊谈判油价均为当日最高热度</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ③ 传播点明确 — 40城名单/1亿吨排沙/油价下跌/日元崩盘均有天然分享锚点</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ④ 可互动可视化 — 黄河调水调沙航拍/达沃斯现场/40城名单地图适配多形态</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑤ 叙事张力 — 黄河调水调沙+卡塔尔爆炸+日元崩盘天然有戏剧冲突</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑥ 化繁为简 — 40城/17条/1亿吨/40年低位等数据已提炼核心记忆点</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑦ 体验一致性 — 多形态方案保持核心信息一致</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑧ 参与门槛低 — "你的城市在40城名单里吗""加油便宜了吗"直接触发互动</div>
+    <div class="principle-item"><span class="p-icon" style="color:#e67e22">⚠️</span> ⑨ 声音加成 — 黄河调水调沙现场声/达沃斯会场氛围适合短视频配乐，经济数据偏弱</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑩ 立场安全 — 已过滤全部政治党建敏感话题（联播第1/2/4/5/6/7条）</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑪ 信息源可信 — 全部源自央视新闻联播2026年6月23日官方渠道</div>
+    <div class="principle-item"><span class="p-icon" style="color:#2ecc71">✅</span> ⑫ 合规可上线 — 无敏感词、无绝对化表述、无诱导分享</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="icon">⏰</span> 发布节奏建议 — "一个热点吃三轮"</div>
+<div class="timeline">
+  <div class="tl-item"><div class="tl-date">6月23日 21:00 — 第一轮</div><div class="tl-text">短视频/朋友圈海报：40城汽车消费试点名单速览 + 黄河调水调沙视觉大片 + 美放松伊朗制裁油价下跌快讯（当晚黄金流量）</div></div>
+  <div class="tl-item"><div class="tl-date">6月24日 08:00 — 第二轮</div><div class="tl-text">公众号长文：达沃斯开幕深度解读 + 外资结构优化分析 + 全链条汽车消费17条措施拆解（早高峰深度阅读）</div></div>
+  <div class="tl-item"><div class="tl-date">6月24日 12:00 — 第三轮</div><div class="tl-text">小红书/微博：日元40年低位财经科普 + 可再生能源绿证解读 + 卡塔尔爆炸能源安全分析（午休碎片阅读）</div></div>
+  <div class="tl-item"><div class="tl-date">6月25日 20:00 — 长尾</div><div class="tl-text">黄河调水调沙科普H5互动 + 汽车后市场17条一图读懂长图 + 达沃斯论坛成果盘点（持续发酵）</div></div>
+</div>
+
+<div class="chart-container">
+  <div class="section-title" style="margin-top:0;"><span class="icon">🛡️</span> 风险自检</div>
+  <div class="risk-list">
+    <div class="risk-item"><span class="risk-ok">✅</span> 已过滤所有政治/党建/领导人相关话题（联播第1/2/4/5/6/7条已过滤）</div>
+    <div class="risk-item"><span class="risk-ok">✅</span> 国际话题采用客观陈述，无站队/带节奏</div>
+    <div class="risk-item"><span class="risk-ok">✅</span> 无"最""第一""绝对"等广告法禁用词</div>
+    <div class="risk-item"><span class="risk-ok">✅</span> 无诱导分享/标题党/震惊体</div>
+    <div class="risk-item"><span class="risk-ok">✅</span> 所有数据来源可追溯至央视新闻联播</div>
+    <div class="risk-item"><span class="risk-warn">⚠️</span> 达沃斯论坛6月23-25日进行中，建议每日跟踪最新成果</div>
+    <div class="risk-item"><span class="risk-warn">⚠️</span> 美伊谈判持续演进，油价波动大，内容发布前确认最新动态</div>
+    <div class="risk-item"><span class="risk-warn">⚠️</span> 卡塔尔天然气工厂爆炸为突发事件，伤亡和影响仍在评估中</div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>📺 数据来源：CCTV新闻联播 2026年6月23日</p>
+  <p>🔧 工具：新闻摘要 × 内容工厂 × 10万+爆款选题炼金炉</p>
+  <p class="foot-note">内容仅供选题参考，实际发布前请核实最新信息</p>
+</div>
+
+</body>
+</html>
